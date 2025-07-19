@@ -1,0 +1,19 @@
+{
+  "name": "learn-reactjs",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}

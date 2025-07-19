@@ -1,0 +1,35 @@
+.navbar {
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar > ul {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.navbar > ul > li {
+  padding: 10px;
+  list-style: none;
+}
+
+.product_card {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.product {
+  border: 1px solid black;
+  width: 200px;
+  padding: 19.5px;
+  margin: 5px;
+  text-align: center;
+}
+
+.product > .product_img {
+  height: 200px;
+  width: 200px
+}
