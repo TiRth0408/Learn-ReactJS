@@ -18732,27 +18732,54 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ProductCard", ()=>ProductCard);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
 var _constant = require("../utils/constant");
 var _product = require("./Product");
 var _productDefault = parcelHelpers.interopDefault(_product);
+var _s = $RefreshSig$();
 const ProductCard = ()=>{
+    _s();
+    const [listOfProduct, setListOfProduct] = (0, _react.useState)((0, _constant.productList));
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "product_card",
-        children: (0, _constant.productList).map((product)=>{
-            return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDefault.default), {
-                product: product
-            }, product.id, false, {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: ()=>{
+                    const filterProduct = listOfProduct.filter((product)=>product.rating.rate >= 4);
+                    setListOfProduct(filterProduct);
+                },
+                style: {
+                    "marginTop": "10px"
+                },
+                children: "Top Rated Product"
+            }, void 0, false, {
                 fileName: "src/components/ProductCard.js",
-                lineNumber: 10,
-                columnNumber: 19
-            }, undefined);
-        })
-    }, void 0, false, {
+                lineNumber: 12,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "product_card",
+                children: listOfProduct.map((product)=>{
+                    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDefault.default), {
+                        product: product
+                    }, product.id, false, {
+                        fileName: "src/components/ProductCard.js",
+                        lineNumber: 21,
+                        columnNumber: 21
+                    }, undefined);
+                })
+            }, void 0, false, {
+                fileName: "src/components/ProductCard.js",
+                lineNumber: 18,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
         fileName: "src/components/ProductCard.js",
-        lineNumber: 7,
+        lineNumber: 11,
         columnNumber: 5
     }, undefined);
 };
+_s(ProductCard, "omTdxEN1XPooC0dXuWWRO2j0bW0=");
 _c = ProductCard;
 var _c;
 $RefreshReg$(_c, "ProductCard");
@@ -18762,7 +18789,7 @@ $RefreshReg$(_c, "ProductCard");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","../utils/constant":"2QBK6","./Product":"2X43s","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"2QBK6":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","../utils/constant":"2QBK6","./Product":"2X43s","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"2QBK6":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "productList", ()=>productList);
