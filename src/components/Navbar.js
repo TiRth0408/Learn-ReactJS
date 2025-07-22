@@ -1,4 +1,7 @@
+import { useState } from "react";
 const Navbar = () => {
+  // let btnName = "Light";
+  const [btnName, setBtnName] = useState("Light");
   return (
     <div className="navbar">
       <h1>LOGO</h1>
@@ -7,6 +10,9 @@ const Navbar = () => {
         <li>WOMEN</li>
         <li>KIDS</li>
         <li>CART</li>
+        <button onClick={() => {
+          btnName === "Light" ? setBtnName("Dark") : setBtnName("Light");
+        }}>{btnName}</button>
       </ul>
     </div>
   );

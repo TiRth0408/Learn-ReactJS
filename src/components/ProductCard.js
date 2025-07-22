@@ -1,11 +1,21 @@
 // named export
-import { useState } from "react"
-import { productList } from "../utils/constant"
+import { useEffect, useState } from "react"
 import Product from "./Product"
 
 export const ProductCard = () => {
 
-  const [listOfProduct, setListOfProduct] = useState(productList);
+  const [listOfProduct, setListOfProduct] = useState([]);
+
+  useEffect(() => { 
+    fetchData();
+  }, []);
+  
+  const fetchData = async () => {
+    const data = await fetch("https://fakestoreapi.com/products");
+    const resData = await data.json();
+    console.log(resData);
+    setListOfProduct(resData);
+  }
 
   return (
     <div>
