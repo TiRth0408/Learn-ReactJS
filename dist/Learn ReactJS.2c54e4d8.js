@@ -16356,7 +16356,7 @@ const Navbar = ()=>{
         className: "navbar",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                children: "LOGO"
+                children: "AJIO"
             }, void 0, false, {
                 fileName: "src/components/Navbar.js",
                 lineNumber: 7,
@@ -16427,7 +16427,7 @@ $RefreshReg$(_c, "Navbar");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"jnFvT":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react":"jMk1U"}],"jnFvT":[function(require,module,exports,__globalThis) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -18751,10 +18751,14 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _product = require("./Product");
 var _productDefault = parcelHelpers.interopDefault(_product);
+var _skeleton = require("./Skeleton");
+var _skeletonDefault = parcelHelpers.interopDefault(_skeleton);
 var _s = $RefreshSig$();
 const ProductCard = ()=>{
     _s();
     const [listOfProduct, setListOfProduct] = (0, _react.useState)([]);
+    const [filteredProduct, setFilteredProduct] = (0, _react.useState)([]);
+    const [searchText, setSearchText] = (0, _react.useState)([]);
     (0, _react.useEffect)(()=>{
         fetchData();
     }, []);
@@ -18763,13 +18767,52 @@ const ProductCard = ()=>{
         const resData = await data.json();
         console.log(resData);
         setListOfProduct(resData);
+        setFilteredProduct(resData);
     };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+    return listOfProduct.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _skeletonDefault.default), {}, void 0, false, {
+        fileName: "src/components/ProductCard.js",
+        lineNumber: 24,
+        columnNumber: 39
+    }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    "marginTop": "10px"
+                },
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "text",
+                        onChange: (e)=>setSearchText(e.target.value),
+                        value: searchText
+                    }, void 0, false, {
+                        fileName: "src/components/ProductCard.js",
+                        lineNumber: 27,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        onClick: ()=>{
+                            const filterProduct = listOfProduct.filter((product)=>{
+                                return product.title.toLowerCase().includes(searchText.toLowerCase());
+                            });
+                            setFilteredProduct(filterProduct);
+                            setSearchText("");
+                        },
+                        children: "Search"
+                    }, void 0, false, {
+                        fileName: "src/components/ProductCard.js",
+                        lineNumber: 28,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/ProductCard.js",
+                lineNumber: 26,
+                columnNumber: 7
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 onClick: ()=>{
                     const filterProduct = listOfProduct.filter((product)=>product.rating.rate >= 4);
-                    setListOfProduct(filterProduct);
+                    setFilteredProduct(filterProduct);
                 },
                 style: {
                     "marginTop": "10px"
@@ -18777,33 +18820,33 @@ const ProductCard = ()=>{
                 children: "Top Rated Product"
             }, void 0, false, {
                 fileName: "src/components/ProductCard.js",
-                lineNumber: 22,
+                lineNumber: 37,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "product_card",
-                children: listOfProduct.map((product)=>{
+                children: filteredProduct.map((product)=>{
                     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDefault.default), {
                         product: product
                     }, product.id, false, {
                         fileName: "src/components/ProductCard.js",
-                        lineNumber: 31,
+                        lineNumber: 46,
                         columnNumber: 21
                     }, undefined);
                 })
             }, void 0, false, {
                 fileName: "src/components/ProductCard.js",
-                lineNumber: 28,
+                lineNumber: 43,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/ProductCard.js",
-        lineNumber: 21,
+        lineNumber: 25,
         columnNumber: 5
     }, undefined);
 };
-_s(ProductCard, "95v/b8LY2qFVC3zdiuRIpKdnrpU=");
+_s(ProductCard, "+1/aoJP0BS7RFiZnuH57UleQrnA=");
 _c = ProductCard;
 var _c;
 $RefreshReg$(_c, "ProductCard");
@@ -18813,7 +18856,7 @@ $RefreshReg$(_c, "ProductCard");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","./Product":"2X43s","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"2X43s":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","./Product":"2X43s","./Skeleton":"5I2kz","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"2X43s":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$634b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$634b.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -18877,6 +18920,122 @@ var _c;
 $RefreshReg$(_c, "Product");
 
   $parcel$ReactRefreshHelpers$634b.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"5I2kz":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$4498 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$4498.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$4498.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const Skeleton = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "skeleton-container",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "skeleton"
+            }, void 0, false, {
+                fileName: "src/components/Skeleton.js",
+                lineNumber: 4,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "skeleton"
+            }, void 0, false, {
+                fileName: "src/components/Skeleton.js",
+                lineNumber: 5,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "skeleton"
+            }, void 0, false, {
+                fileName: "src/components/Skeleton.js",
+                lineNumber: 6,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "skeleton"
+            }, void 0, false, {
+                fileName: "src/components/Skeleton.js",
+                lineNumber: 7,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "skeleton"
+            }, void 0, false, {
+                fileName: "src/components/Skeleton.js",
+                lineNumber: 8,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "skeleton"
+            }, void 0, false, {
+                fileName: "src/components/Skeleton.js",
+                lineNumber: 9,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "skeleton"
+            }, void 0, false, {
+                fileName: "src/components/Skeleton.js",
+                lineNumber: 10,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "skeleton"
+            }, void 0, false, {
+                fileName: "src/components/Skeleton.js",
+                lineNumber: 11,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "skeleton"
+            }, void 0, false, {
+                fileName: "src/components/Skeleton.js",
+                lineNumber: 12,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "skeleton"
+            }, void 0, false, {
+                fileName: "src/components/Skeleton.js",
+                lineNumber: 13,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "skeleton"
+            }, void 0, false, {
+                fileName: "src/components/Skeleton.js",
+                lineNumber: 14,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "skeleton"
+            }, void 0, false, {
+                fileName: "src/components/Skeleton.js",
+                lineNumber: 15,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/Skeleton.js",
+        lineNumber: 3,
+        columnNumber: 5
+    }, undefined);
+};
+_c = Skeleton;
+exports.default = Skeleton;
+var _c;
+$RefreshReg$(_c, "Skeleton");
+
+  $parcel$ReactRefreshHelpers$4498.postlude(module);
 } finally {
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;

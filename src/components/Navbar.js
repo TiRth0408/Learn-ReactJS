@@ -4,7 +4,7 @@ const Navbar = () => {
   const [btnName, setBtnName] = useState("Light");
   return (
     <div className="navbar">
-      <h1>LOGO</h1>
+      <h1>AJIO</h1>
       <ul className="menu_items">
         <li>MEN</li>
         <li>WOMEN</li>

@@ -33,4 +33,16 @@
   width: 200px;
   height: 200px;
 }
+
+.skeleton-container {
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.skeleton {
+  background-color: #f0f0f0f0;
+  width: 200px;
+  height: 400px;
+  margin: 25px;
+}
 /*# sourceMappingURL=Learn ReactJS.3a01df49.css.map */
