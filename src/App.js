@@ -1,18 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { jsx } from "react/jsx-runtime";
-// Default export
-import Navbar from "./components/Navbar";
-// Named Export we use curly braces
-import { ProductCard } from "./components/ProductCard";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
+import Navbar from "./components/Navbar";
 import Error from "./components/Error";
 import Men from "./components/Men";
 import Women from "./components/Women";
-import Kid from "./components/kid";
+import Kid from "./components/Kid";
 import Cart from "./components/Cart";
 import ProductDetails from "./components/ProductDetails";
+import { ProductCard } from "./components/ProductCard";
+
 const App = () => {
   return (
     <div>
@@ -22,44 +20,39 @@ const App = () => {
   );
 };
 
-
 const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <Error />,
     children: [
       {
-        path:"/",
-        element:<ProductCard />
+        index: true,
+        element: <ProductCard />,
       },
       {
-        path: "/kid",
-        element: <Kid />
+        path: "kid",
+        element: <Kid />,
       },
       {
-        path: "/Men",
-        element: <Men />
+        path: "men",
+        element: <Men />,
       },
       {
-        path: "/Women",
-        element: <Women />
+        path: "women",
+        element: <Women />,
       },
       {
-        path: "/cart",
-        element: <Cart />
+        path: "cart",
+        element: <Cart />,
       },
       {
-        path: "/product/:ProductId",
-        element: <ProductDetails/>
-      }
+        path: "product/:ProductId",
+        element: <ProductDetails />,
+      },
     ],
-    errorElement: <Error />
   },
+]);
 
-])
-
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRouter} />);
-
-export * from "react-router-dom"

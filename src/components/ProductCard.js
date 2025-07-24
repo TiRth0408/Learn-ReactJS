@@ -16,9 +16,11 @@ export const ProductCard = () => {
   const fetchData = async () => {
     const data = await fetch("https://fakestoreapi.com/products");
     const resData = await data.json();
+    
     setListOfProduct(resData);
     setFilteredProduct(resData);
   }
+
 
   return listOfProduct.length === 0 ? <Skeleton /> : (
     <div>
