@@ -16,7 +16,6 @@ export const ProductCard = () => {
   const fetchData = async () => {
     const data = await fetch("https://fakestoreapi.com/products");
     const resData = await data.json();
-    console.log(resData);
     setListOfProduct(resData);
     setFilteredProduct(resData);
   }

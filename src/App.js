@@ -5,12 +5,14 @@ import { jsx } from "react/jsx-runtime";
 import Navbar from "./components/Navbar";
 // Named Export we use curly braces
 import { ProductCard } from "./components/ProductCard";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+
 import Error from "./components/Error";
 import Men from "./components/Men";
 import Women from "./components/Women";
 import Kid from "./components/kid";
 import Cart from "./components/Cart";
+import ProductDetails from "./components/ProductDetails";
 const App = () => {
   return (
     <div>
@@ -45,6 +47,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />
+      },
+      {
+        path: "/product/:ProductId",
+        element: <ProductDetails/>
       }
     ],
     errorElement: <Error />
@@ -55,3 +61,5 @@ const appRouter = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<RouterProvider router={appRouter} />);
+
+export * from "react-router-dom"
