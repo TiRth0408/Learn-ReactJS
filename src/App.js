@@ -10,6 +10,7 @@ import Kid from "./components/Kid";
 import Cart from "./components/Cart";
 import ProductDetails from "./components/ProductDetails";
 import { ProductCard } from "./components/ProductCard";
+import About from "./components/About";
 
 const App = () => {
   return (
@@ -31,23 +32,27 @@ const appRouter = createBrowserRouter([
         element: <ProductCard />,
       },
       {
-        path: "kid",
+        path: "/kid",
         element: <Kid />,
       },
       {
-        path: "men",
+        path: "/men",
         element: <Men />,
       },
       {
-        path: "women",
+        path: "/women",
         element: <Women />,
       },
       {
-        path: "cart",
+        path: "/cart",
         element: <Cart />,
       },
       {
-        path: "product/:ProductId",
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/product/:ProductId",
         element: <ProductDetails />,
       },
     ],
