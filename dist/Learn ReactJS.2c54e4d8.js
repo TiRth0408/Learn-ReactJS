@@ -696,40 +696,44 @@ var _cartDefault = parcelHelpers.interopDefault(_cart);
 var _productDetails = require("./components/ProductDetails");
 var _productDetailsDefault = parcelHelpers.interopDefault(_productDetails);
 var _productCard = require("./components/ProductCard");
-var _about = require("./components/About");
-var _aboutDefault = parcelHelpers.interopDefault(_about);
+// import About from "./components/About";
+// import Grocery from "./components/Grocery";
+const Grocery = /*#__PURE__*/ (0, _react.lazy)(()=>require("6bf9e24f54814dcb"));
+_c = Grocery;
+const About = /*#__PURE__*/ (0, _react.lazy)(()=>require("e9c452bf08808b49"));
+_c1 = About;
 const App = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navbarDefault.default), {}, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 18,
+                lineNumber: 21,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {}, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 19,
+                lineNumber: 22,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/App.js",
-        lineNumber: 17,
+        lineNumber: 20,
         columnNumber: 5
     }, undefined);
 };
-_c = App;
+_c2 = App;
 const appRouter = (0, _reactRouterDom.createBrowserRouter)([
     {
         path: "/",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
             fileName: "src/App.js",
-            lineNumber: 27,
+            lineNumber: 30,
             columnNumber: 14
         }, undefined),
         errorElement: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _errorDefault.default), {}, void 0, false, {
             fileName: "src/App.js",
-            lineNumber: 28,
+            lineNumber: 31,
             columnNumber: 19
         }, undefined),
         children: [
@@ -737,7 +741,7 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                 index: true,
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productCard.ProductCard), {}, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 32,
+                    lineNumber: 35,
                     columnNumber: 18
                 }, undefined)
             },
@@ -745,7 +749,7 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/kid",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _kidDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 36,
+                    lineNumber: 39,
                     columnNumber: 18
                 }, undefined)
             },
@@ -753,7 +757,7 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/men",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _menDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 40,
+                    lineNumber: 43,
                     columnNumber: 18
                 }, undefined)
             },
@@ -761,7 +765,7 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/women",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _womenDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 44,
+                    lineNumber: 47,
                     columnNumber: 18
                 }, undefined)
             },
@@ -769,15 +773,32 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/cart",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cartDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 48,
+                    lineNumber: 51,
                     columnNumber: 18
                 }, undefined)
             },
             {
                 path: "/about",
-                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _aboutDefault.default), {}, void 0, false, {
+                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Suspense), {
+                    fallback: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                        children: "Loading..."
+                    }, void 0, false, {
+                        fileName: "src/App.js",
+                        lineNumber: 55,
+                        columnNumber: 38
+                    }, void 0),
+                    children: [
+                        " ",
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(About, {}, void 0, false, {
+                            fileName: "src/App.js",
+                            lineNumber: 55,
+                            columnNumber: 60
+                        }, undefined),
+                        " "
+                    ]
+                }, void 0, true, {
                     fileName: "src/App.js",
-                    lineNumber: 52,
+                    lineNumber: 55,
                     columnNumber: 18
                 }, undefined)
             },
@@ -785,7 +806,32 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/product/:productId",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDetailsDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 56,
+                    lineNumber: 59,
+                    columnNumber: 18
+                }, undefined)
+            },
+            {
+                path: "/grocery",
+                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Suspense), {
+                    fallback: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                        children: "Loading..."
+                    }, void 0, false, {
+                        fileName: "src/App.js",
+                        lineNumber: 63,
+                        columnNumber: 38
+                    }, void 0),
+                    children: [
+                        " ",
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Grocery, {}, void 0, false, {
+                            fileName: "src/App.js",
+                            lineNumber: 63,
+                            columnNumber: 60
+                        }, undefined),
+                        " "
+                    ]
+                }, void 0, true, {
+                    fileName: "src/App.js",
+                    lineNumber: 63,
                     columnNumber: 18
                 }, undefined)
             }
@@ -797,18 +843,20 @@ root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.RouterP
     router: appRouter
 }, void 0, false, {
     fileName: "src/App.js",
-    lineNumber: 63,
+    lineNumber: 70,
     columnNumber: 13
 }, undefined));
-var _c;
-$RefreshReg$(_c, "App");
+var _c, _c1, _c2;
+$RefreshReg$(_c, "Grocery");
+$RefreshReg$(_c1, "About");
+$RefreshReg$(_c2, "App");
 
   $parcel$ReactRefreshHelpers$4089.postlude(module);
 } finally {
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-dom/client":"hrvwu","./components/Navbar":"99RRu","./components/ProductCard":"48s29","react-router-dom":"61z4w","./components/Error":"8NIKV","./components/Men":"7xcAl","./components/Women":"l6hve","./components/Cart":"h9Vh3","./components/ProductDetails":"dsChn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./components/Kid":"2vx74","./components/About":"bv2mH"}],"dVPUn":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-dom/client":"hrvwu","./components/Navbar":"99RRu","./components/ProductCard":"48s29","react-router-dom":"61z4w","./components/Error":"8NIKV","./components/Men":"7xcAl","./components/Women":"l6hve","./components/Cart":"h9Vh3","./components/ProductDetails":"dsChn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./components/Kid":"2vx74","6bf9e24f54814dcb":"baeVm","e9c452bf08808b49":"3DmBm"}],"dVPUn":[function(require,module,exports,__globalThis) {
 'use strict';
 module.exports = require("ee51401569654d91");
 
@@ -16306,6 +16354,20 @@ const Navbar = ()=>{
                         fileName: "src/components/Navbar.js",
                         lineNumber: 15,
                         columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                            to: "/grocery",
+                            children: "GROCERY"
+                        }, void 0, false, {
+                            fileName: "src/components/Navbar.js",
+                            lineNumber: 16,
+                            columnNumber: 13
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/components/Navbar.js",
+                        lineNumber: 16,
+                        columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
@@ -16320,7 +16382,7 @@ const Navbar = ()=>{
                 children: btnName
             }, void 0, false, {
                 fileName: "src/components/Navbar.js",
-                lineNumber: 17,
+                lineNumber: 18,
                 columnNumber: 7
             }, undefined)
         ]
@@ -26394,72 +26456,77 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _reactRouterDom = require("react-router-dom");
 var _react = require("react");
+var _skeleton = require("./Skeleton");
+var _skeletonDefault = parcelHelpers.interopDefault(_skeleton);
+var _useGetSingleProduct = require("../Hook/useGetSingleProduct");
+var _useGetSingleProductDefault = parcelHelpers.interopDefault(_useGetSingleProduct);
 var _s = $RefreshSig$();
 const ProductDetails = ()=>{
     _s();
     const { productId } = (0, _reactRouterDom.useParams)();
-    const [product, setProduct] = (0, _react.useState)(null);
-    (0, _react.useEffect)(()=>{
-        console.log("Product ID:", productId); // debug
-        fetch(`https://fakestoreapi.com/products/${productId}`).then((res)=>res.json()).then((data)=>{
-            console.log("Fetched data:", data); // debug
-            setProduct(data);
-        }).catch((err)=>console.error("Error fetching:", err));
-    }, [
-        productId
-    ]);
-    if (!product) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-        children: "Loading..."
-    }, void 0, false, {
+    const singleProduct = (0, _useGetSingleProductDefault.default)(productId);
+    if (singleProduct == null) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _skeletonDefault.default), {}, void 0, false, {
         fileName: "src/components/ProductDetails.js",
-        lineNumber: 19,
-        columnNumber: 24
+        lineNumber: 12,
+        columnNumber: 12
     }, undefined);
+    const { image, title, price, description } = singleProduct;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "product",
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                children: product.title
-            }, void 0, false, {
-                fileName: "src/components/ProductDetails.js",
-                lineNumber: 23,
-                columnNumber: 7
-            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                src: product.image,
-                alt: product.title,
-                width: "200"
+                className: "product_img",
+                src: image
             }, void 0, false, {
                 fileName: "src/components/ProductDetails.js",
-                lineNumber: 24,
+                lineNumber: 19,
                 columnNumber: 7
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: product.description
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                children: title
             }, void 0, false, {
                 fileName: "src/components/ProductDetails.js",
-                lineNumber: 25,
+                lineNumber: 20,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: [
-                    "Price: $",
-                    product.price
+                    singleProduct.rating.rate,
+                    " Ratings "
                 ]
             }, void 0, true, {
                 fileName: "src/components/ProductDetails.js",
-                lineNumber: 26,
+                lineNumber: 21,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: [
+                    "Price: ",
+                    price
+                ]
+            }, void 0, true, {
+                fileName: "src/components/ProductDetails.js",
+                lineNumber: 22,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: description
+            }, void 0, false, {
+                fileName: "src/components/ProductDetails.js",
+                lineNumber: 23,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/ProductDetails.js",
-        lineNumber: 22,
+        lineNumber: 18,
         columnNumber: 5
     }, undefined);
 };
-_s(ProductDetails, "FZ0q+cju/CwecoHXjizyQqtuJyc=", false, function() {
+_s(ProductDetails, "8ATPto9XXYTtTdMR7+phMRibEWM=", false, function() {
     return [
-        (0, _reactRouterDom.useParams)
+        (0, _reactRouterDom.useParams),
+        (0, _useGetSingleProductDefault.default)
     ];
 });
 _c = ProductDetails;
@@ -26472,7 +26539,40 @@ $RefreshReg$(_c, "ProductDetails");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react-router-dom":"61z4w","react":"jMk1U"}],"2vx74":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react-router-dom":"61z4w","./Skeleton":"5I2kz","../Hook/useGetSingleProduct":"2d4gr","react":"jMk1U"}],"2d4gr":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$2549 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$2549.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$2549.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _s = $RefreshSig$();
+const useGetSingleProduct = (productId)=>{
+    _s();
+    const [singleProduct, setSingleProduct] = (0, _react.useState)(null);
+    (0, _react.useEffect)(()=>{
+        fetchSingleProduct();
+    }, []);
+    const fetchSingleProduct = async ()=>{
+        const data = await fetch(`https://fakestoreapi.com/products/${productId}`);
+        const jsonData = await data.json();
+        setSingleProduct(jsonData);
+    };
+    return singleProduct;
+};
+_s(useGetSingleProduct, "CTU3VVfQEKHlEousQlEU3rXhjpc=");
+exports.default = useGetSingleProduct;
+
+  $parcel$ReactRefreshHelpers$2549.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"2vx74":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$3417 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$3417.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -26508,281 +26608,12 @@ $RefreshReg$(_c, "Kid");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"bv2mH":[function(require,module,exports,__globalThis) {
-var $parcel$ReactRefreshHelpers$f021 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-$parcel$ReactRefreshHelpers$f021.init();
-var prevRefreshReg = globalThis.$RefreshReg$;
-var prevRefreshSig = globalThis.$RefreshSig$;
-$parcel$ReactRefreshHelpers$f021.prelude(module);
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"baeVm":[function(require,module,exports,__globalThis) {
+module.exports = import("./Grocery.390591cb.js").then(()=>module.bundle.root('cz4SJ'));
 
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _profileFC = require("./ProfileFC");
-var _profileFCDefault = parcelHelpers.interopDefault(_profileFC);
-var _profileClass = require("./ProfileClass");
-var _profileClassDefault = parcelHelpers.interopDefault(_profileClass);
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-// const About = () => {
-//   return (
-//     <div>
-//       <ProfileFC name="Tirth Patel" city="Gujrat" email="tirthpatel@gmail.com" />
-//       <ProfileClass name="Patel Lali" city="Mumbai" email="lalipatel@gmail.com" />
-//     </div>
-//   );
-// };
-// export default About;
-class About extends (0, _react.Component) {
-    constructor(){
-        super();
-    }
-    render() {
-        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileClassDefault.default), {
-                name: "Patel Lali",
-                city: "Mumbai",
-                email: "lalipatel@gmail.com"
-            }, void 0, false, {
-                fileName: "src/components/About.js",
-                lineNumber: 26,
-                columnNumber: 9
-            }, this)
-        }, void 0, false, {
-            fileName: "src/components/About.js",
-            lineNumber: 25,
-            columnNumber: 7
-        }, this);
-    }
-}
-exports.default = About; // this is life cycle of react component with // componentDidMount
- // parent ctr is called
- // parent render is called
- // child ctr is called
- // child render is called
- // child ctr is called
- // child render is called
- // child mount is called
- // child mount is called
- // parent mount is called
+},{"cz4SJ":"cz4SJ"}],"3DmBm":[function(require,module,exports,__globalThis) {
+module.exports = import("./About.55328834.js").then(()=>module.bundle.root('bv2mH'));
 
-  $parcel$ReactRefreshHelpers$f021.postlude(module);
-} finally {
-  globalThis.$RefreshReg$ = prevRefreshReg;
-  globalThis.$RefreshSig$ = prevRefreshSig;
-}
-},{"./ProfileFC":"5MipS","./ProfileClass":"lYB5X","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react/jsx-dev-runtime":"dVPUn"}],"5MipS":[function(require,module,exports,__globalThis) {
-var $parcel$ReactRefreshHelpers$3c0d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-$parcel$ReactRefreshHelpers$3c0d.init();
-var prevRefreshReg = globalThis.$RefreshReg$;
-var prevRefreshSig = globalThis.$RefreshSig$;
-$parcel$ReactRefreshHelpers$3c0d.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _s = $RefreshSig$();
-const ProfileFC = (props)=>{
-    _s();
-    const { name, city, email } = props;
-    const [count, setCount] = (0, _reactDefault.default).useState(0);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        style: {
-            "border": "1px solid black",
-            padding: "10px",
-            margin: "10px"
-        },
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                children: "Profile Functional Component"
-            }, void 0, false, {
-                fileName: "src/components/ProfileFC.js",
-                lineNumber: 14,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                children: [
-                    "Name: ",
-                    name
-                ]
-            }, void 0, true, {
-                fileName: "src/components/ProfileFC.js",
-                lineNumber: 15,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                children: [
-                    "Address: ",
-                    city
-                ]
-            }, void 0, true, {
-                fileName: "src/components/ProfileFC.js",
-                lineNumber: 16,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                children: [
-                    "Email: ",
-                    email
-                ]
-            }, void 0, true, {
-                fileName: "src/components/ProfileFC.js",
-                lineNumber: 17,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                children: [
-                    "Count - ",
-                    count
-                ]
-            }, void 0, true, {
-                fileName: "src/components/ProfileFC.js",
-                lineNumber: 18,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                onClick: ()=>{
-                    setCount(count + 1);
-                },
-                children: "Increment"
-            }, void 0, false, {
-                fileName: "src/components/ProfileFC.js",
-                lineNumber: 19,
-                columnNumber: 7
-            }, undefined)
-        ]
-    }, void 0, true, {
-        fileName: "src/components/ProfileFC.js",
-        lineNumber: 7,
-        columnNumber: 5
-    }, undefined);
-};
-_s(ProfileFC, "oDgYfYHkD9Wkv4hrAPCkI/ev3YU=");
-_c = ProfileFC;
-exports.default = ProfileFC;
-var _c;
-$RefreshReg$(_c, "ProfileFC");
-
-  $parcel$ReactRefreshHelpers$3c0d.postlude(module);
-} finally {
-  globalThis.$RefreshReg$ = prevRefreshReg;
-  globalThis.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"lYB5X":[function(require,module,exports,__globalThis) {
-var $parcel$ReactRefreshHelpers$286e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-$parcel$ReactRefreshHelpers$286e.init();
-var prevRefreshReg = globalThis.$RefreshReg$;
-var prevRefreshSig = globalThis.$RefreshSig$;
-$parcel$ReactRefreshHelpers$286e.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-class ProfileClass extends (0, _reactDefault.default).Component {
-    constructor(){
-        super();
-        this.state = {
-            userDetails: {
-                name: "dummy name",
-                user_view_type: "dummy view type",
-                avatar_url: "https://dummyimage.com/100x100/000/fff"
-            },
-            count: 0
-        };
-        console.log('ctr is called');
-    }
-    async componentDidMount() {
-        const data = await fetch("https://api.github.com/users/TiRth0408");
-        const resData = await data.json();
-        this.setState({
-            userDetails: resData
-        });
-        console.log('component did mount is called');
-        this.timer = setTimeout(()=>{
-            console.log('Tirth Called');
-        }, 1000);
-    }
-    componentDidUpdate(prevProps, prevState) {
-        console.log('component did update is called');
-        if (this.state.count !== prevState.count || this.state.count2 !== prevState.count2) console.log('Count has changed:', this.state.count);
-    }
-    componentWillUnmount() {
-        console.log('component will unmount is called');
-        clearInterval(this.timer);
-    }
-    render() {
-        console.log('render is called');
-        if (this.state.userDetails === null) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-            children: "Loading.."
-        }, void 0, false, {
-            fileName: "src/components/ProfileClass.js",
-            lineNumber: 47,
-            columnNumber: 14
-        }, this);
-        const { name, user_view_type, avatar_url } = this.state.userDetails;
-        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            style: {
-                "border": "1px solid black",
-                padding: "10px",
-                margin: "10px"
-            },
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                    children: "Profile Class Component"
-                }, void 0, false, {
-                    fileName: "src/components/ProfileClass.js",
-                    lineNumber: 60,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                    children: [
-                        "Name: ",
-                        name
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/ProfileClass.js",
-                    lineNumber: 61,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                    children: [
-                        "User View Type: ",
-                        user_view_type
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/ProfileClass.js",
-                    lineNumber: 62,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                    src: avatar_url
-                }, void 0, false, {
-                    fileName: "src/components/ProfileClass.js",
-                    lineNumber: 63,
-                    columnNumber: 9
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "src/components/ProfileClass.js",
-            lineNumber: 53,
-            columnNumber: 7
-        }, this);
-    }
-}
-exports.default = ProfileClass;
-
-  $parcel$ReactRefreshHelpers$286e.postlude(module);
-} finally {
-  globalThis.$RefreshReg$ = prevRefreshReg;
-  globalThis.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}]},["frqA7","hh6uc"], "hh6uc", "parcelRequirea7db", {}, null, null, "http://localhost:1234")
+},{"bv2mH":"bv2mH"}]},["frqA7","hh6uc"], "hh6uc", "parcelRequirea7db", {}, null, null, "http://localhost:1234")
 
 //# sourceMappingURL=Learn ReactJS.2c54e4d8.js.map

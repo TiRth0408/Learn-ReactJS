@@ -13,6 +13,7 @@ const Navbar = () => {
         <li><Link to="/kid">KID</Link></li>
         <li><Link to="/about">ABOUT</Link></li>
         <li><Link to="/cart">CART</Link></li>
+        <li><Link to="/grocery">GROCERY</Link></li>
       </ul>
       <button onClick={() => {
         setBtnName(btnName === "Light" ? "Dark" : "Light");
