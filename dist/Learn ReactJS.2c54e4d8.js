@@ -782,7 +782,7 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                 }, undefined)
             },
             {
-                path: "/product/:ProductId",
+                path: "/product/:productId",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDetailsDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
                     lineNumber: 56,
@@ -26393,92 +26393,71 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _reactRouterDom = require("react-router-dom");
-var _skeleton = require("./Skeleton");
-var _skeletonDefault = parcelHelpers.interopDefault(_skeleton);
 var _react = require("react");
 var _s = $RefreshSig$();
 const ProductDetails = ()=>{
     _s();
-    const [singleProduct, setSingleProduct] = (0, _react.useState)(null);
     const { productId } = (0, _reactRouterDom.useParams)();
+    const [product, setProduct] = (0, _react.useState)(null);
     (0, _react.useEffect)(()=>{
-        fetchData();
+        console.log("Product ID:", productId); // debug
+        fetch(`https://fakestoreapi.com/products/${productId}`).then((res)=>res.json()).then((data)=>{
+            console.log("Fetched data:", data); // debug
+            setProduct(data);
+        }).catch((err)=>console.error("Error fetching:", err));
     }, [
         productId
     ]);
-    const fetchData = async ()=>{
-        const data = await fetch(`https://fakestoreapi.com/products/${productId}`);
-        const resData = await data.json();
-        setSingleProduct(resData);
-    };
-    if (singleProduct === null) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _skeletonDefault.default), {}, void 0, false, {
+    if (!product) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+        children: "Loading..."
+    }, void 0, false, {
         fileName: "src/components/ProductDetails.js",
-        lineNumber: 21,
-        columnNumber: 12
+        lineNumber: 19,
+        columnNumber: 24
     }, undefined);
-    const { title, price, description, image } = singleProduct;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "product",
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                className: "product_img",
-                src: image
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                children: product.title
             }, void 0, false, {
                 fileName: "src/components/ProductDetails.js",
-                lineNumber: 28,
+                lineNumber: 23,
                 columnNumber: 7
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                children: [
-                    " ",
-                    title,
-                    " "
-                ]
-            }, void 0, true, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                src: product.image,
+                alt: product.title,
+                width: "200"
+            }, void 0, false, {
                 fileName: "src/components/ProductDetails.js",
-                lineNumber: 29,
+                lineNumber: 24,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: product.description
+            }, void 0, false, {
+                fileName: "src/components/ProductDetails.js",
+                lineNumber: 25,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 children: [
-                    singleProduct.rating.rate,
-                    " Ratings "
+                    "Price: $",
+                    product.price
                 ]
             }, void 0, true, {
                 fileName: "src/components/ProductDetails.js",
-                lineNumber: 30,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: [
-                    " Price: ",
-                    price,
-                    " "
-                ]
-            }, void 0, true, {
-                fileName: "src/components/ProductDetails.js",
-                lineNumber: 31,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: [
-                    " ",
-                    description,
-                    " "
-                ]
-            }, void 0, true, {
-                fileName: "src/components/ProductDetails.js",
-                lineNumber: 32,
+                lineNumber: 26,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/ProductDetails.js",
-        lineNumber: 27,
+        lineNumber: 22,
         columnNumber: 5
     }, undefined);
 };
-_s(ProductDetails, "34nFAGvitP1MpTqegznDiWUoXyQ=", false, function() {
+_s(ProductDetails, "FZ0q+cju/CwecoHXjizyQqtuJyc=", false, function() {
     return [
         (0, _reactRouterDom.useParams)
     ];
@@ -26493,7 +26472,7 @@ $RefreshReg$(_c, "ProductDetails");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react-router-dom":"61z4w","./Skeleton":"5I2kz","react":"jMk1U"}],"2vx74":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react-router-dom":"61z4w","react":"jMk1U"}],"2vx74":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$3417 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$3417.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
