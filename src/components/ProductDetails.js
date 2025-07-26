@@ -1,36 +1,35 @@
 import { useParams } from "react-router-dom";
+import Skeleton from "./Skeleton"
 import { useEffect, useState } from "react";
 
 const ProductDetails = () => {
-  const { ProductId } = useParams(); // ✅ Get ID from URL
-  const [product, setProduct] = useState(null);
+  
+  const [singleProduct , setSingleProduct] = useState(null);
+  const {productId} = useParams();
 
   useEffect(() => {
-    fetchProduct();
-  }, []);
+    fetchData();
+  }, [productId]);
 
-  const fetchProduct = async () => {
-    try {
-      const response = await fetch(`https://fakestoreapi.com/products/${ProductId}`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
-      setProduct(data);
-    } catch (err) {
-      console.error("Fetch error:", err);
-    }
-  };
+  const fetchData = async () => {
+    const data = await fetch(`https://fakestoreapi.com/products/${productId}`);
+    const resData = await data.json();
+    setSingleProduct(resData);
+  }
 
-  if (!product) return <h2>Loading...</h2>;
+  if (singleProduct === null) {
+    return <Skeleton />
+  }
+
+  const { title, price, description, image } = singleProduct;
 
   return (
-    <div className="product-details">
-      <img src={product.image} alt={product.title} />
-      <h2>{product.title}</h2>
-      <div className="details-info">Rating: {product.rating ? product.rating.rate : "N/A"}</div>
-      <div className="details-info">Price: ${product.price}</div>
-      <p className="description">{product.description}</p>
+    <div className="product">
+      <img className="product_img" src= {image} />
+      <h2> {title} </h2>
+      <p>{singleProduct.rating.rate} Ratings </p>
+      <p> Price: {price} </p>
+      <p> {description} </p>
     </div>
   );
 };

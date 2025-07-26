@@ -11,6 +11,14 @@ export const ProductCard = () => {
 
   useEffect(() => {
     fetchData();
+    const timer = setInterval(() => {
+      console.log('function component');
+    },1000);
+
+    return () => {
+      console.log('cleanup function is called');
+      clearInterval(timer);
+    }
   }, []);
 
   const fetchData = async () => {
