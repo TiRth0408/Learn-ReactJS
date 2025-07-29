@@ -16273,9 +16273,10 @@ const Navbar = ()=>{
     _s();
     const [btnName, setBtnName] = (0, _react.useState)("Light");
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "navbar",
+        className: "flex justify-between px-10 py-5 shadow-md",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                className: "font-bold text-2xl",
                 children: "AJIO"
             }, void 0, false, {
                 fileName: "src/components/Navbar.js",
@@ -16283,7 +16284,7 @@ const Navbar = ()=>{
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                className: "menu_items",
+                className: "flex justify-between w-[40%]",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -16373,16 +16374,6 @@ const Navbar = ()=>{
             }, void 0, true, {
                 fileName: "src/components/Navbar.js",
                 lineNumber: 10,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                onClick: ()=>{
-                    setBtnName(btnName === "Light" ? "Dark" : "Light");
-                },
-                children: btnName
-            }, void 0, false, {
-                fileName: "src/components/Navbar.js",
-                lineNumber: 18,
                 columnNumber: 7
             }, undefined)
         ]
@@ -25988,32 +25979,56 @@ const ProductCard = ()=>{
     }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                style: {
-                    "marginTop": "10px"
-                },
+                className: "mt-5 flex mx-5 space-x-2",
                 children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        type: "text",
-                        onChange: (e)=>setSearchText(e.target.value),
-                        value: searchText
-                    }, void 0, false, {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "mt-2.5 flex",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                className: "border border-gray-700 px-1.5 py-1.5",
+                                type: "text",
+                                onChange: (e)=>setSearchText(e.target.value),
+                                value: searchText
+                            }, void 0, false, {
+                                fileName: "src/components/ProductCard.js",
+                                lineNumber: 38,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                onClick: ()=>{
+                                    const filterProduct = listOfProduct.filter((product)=>{
+                                        return product.title.toLowerCase().includes(searchText.toLowerCase());
+                                    });
+                                    setFilteredProduct(filterProduct);
+                                    setSearchText("");
+                                },
+                                className: "bg-blue-400 px-4 py-1.5 cursor-pointer",
+                                children: " Search"
+                            }, void 0, false, {
+                                fileName: "src/components/ProductCard.js",
+                                lineNumber: 40,
+                                columnNumber: 11
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
                         fileName: "src/components/ProductCard.js",
                         lineNumber: 36,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         onClick: ()=>{
-                            const filterProduct = listOfProduct.filter((product)=>{
-                                return product.title.toLowerCase().includes(searchText.toLowerCase());
-                            });
+                            const filterProduct = listOfProduct.filter((product)=>product.rating.rate >= 4);
                             setFilteredProduct(filterProduct);
-                            setSearchText("");
                         },
-                        children: "Search"
+                        style: {
+                            "marginTop": "10px"
+                        },
+                        className: "bg-blue-400 px-4 py-1.5 cursor-pointer",
+                        children: "Top Rated Product"
                     }, void 0, false, {
                         fileName: "src/components/ProductCard.js",
-                        lineNumber: 37,
-                        columnNumber: 9
+                        lineNumber: 51,
+                        columnNumber: 11
                     }, undefined)
                 ]
             }, void 0, true, {
@@ -26021,34 +26036,20 @@ const ProductCard = ()=>{
                 lineNumber: 35,
                 columnNumber: 7
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                onClick: ()=>{
-                    const filterProduct = listOfProduct.filter((product)=>product.rating.rate >= 4);
-                    setFilteredProduct(filterProduct);
-                },
-                style: {
-                    "marginTop": "10px"
-                },
-                children: "Top Rated Product"
-            }, void 0, false, {
-                fileName: "src/components/ProductCard.js",
-                lineNumber: 46,
-                columnNumber: 7
-            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "product_card",
+                className: "flex flex-wrap justify-center mt-5 mx-5",
                 children: filteredProduct.map((product)=>{
                     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDefault.default), {
                         product: product
                     }, product.id, false, {
                         fileName: "src/components/ProductCard.js",
-                        lineNumber: 55,
+                        lineNumber: 62,
                         columnNumber: 21
                     }, undefined);
                 })
             }, void 0, false, {
                 fileName: "src/components/ProductCard.js",
-                lineNumber: 52,
+                lineNumber: 59,
                 columnNumber: 7
             }, undefined)
         ]
@@ -26083,13 +26084,13 @@ var _reactRouterDom = require("react-router-dom");
 const Product = ({ product })=>{
     const { id, title, image, price, rating } = product;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "product",
+        className: "w-full sm:w-72 bg-white rounded-2xl shadow-md border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 mb-6 m-10",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                 to: `/product/${id}`,
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                        className: "product_img",
+                        className: "w-full h-52 object-contain bg-gray-100 p-4 rounded-t-md",
                         src: image,
                         alt: title
                     }, void 0, false, {
@@ -26097,11 +26098,19 @@ const Product = ({ product })=>{
                         lineNumber: 9,
                         columnNumber: 9
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                        children: title
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "px-4 py-2",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                            className: "text-lg font-semibold text-gray-800 hover:text-indigo-600 transition-colors duration-200 line-clamp-2",
+                            children: title
+                        }, void 0, false, {
+                            fileName: "src/components/Product.js",
+                            lineNumber: 15,
+                            columnNumber: 11
+                        }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/Product.js",
-                        lineNumber: 10,
+                        lineNumber: 14,
                         columnNumber: 9
                     }, undefined)
                 ]
@@ -26110,24 +26119,67 @@ const Product = ({ product })=>{
                 lineNumber: 8,
                 columnNumber: 7
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "px-4 pb-4 text-sm text-gray-700 space-y-1",
                 children: [
-                    "Rating: ",
-                    rating ? rating.rate : "N/A"
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                        className: "flex items-center",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                className: "font-medium text-gray-600",
+                                children: "Rating:"
+                            }, void 0, false, {
+                                fileName: "src/components/Product.js",
+                                lineNumber: 22,
+                                columnNumber: 11
+                            }, undefined),
+                            "\xa0",
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                className: "text-yellow-500 font-semibold",
+                                children: rating ? `${rating.rate} \u{2B50}` : "N/A"
+                            }, void 0, false, {
+                                fileName: "src/components/Product.js",
+                                lineNumber: 23,
+                                columnNumber: 11
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/Product.js",
+                        lineNumber: 21,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                className: "font-medium text-gray-600",
+                                children: "Price:"
+                            }, void 0, false, {
+                                fileName: "src/components/Product.js",
+                                lineNumber: 28,
+                                columnNumber: 11
+                            }, undefined),
+                            "\xa0",
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                className: "text-green-600 font-bold",
+                                children: [
+                                    "$",
+                                    price
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/Product.js",
+                                lineNumber: 29,
+                                columnNumber: 11
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/Product.js",
+                        lineNumber: 27,
+                        columnNumber: 9
+                    }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Product.js",
-                lineNumber: 12,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: [
-                    "Price: $",
-                    price
-                ]
-            }, void 0, true, {
-                fileName: "src/components/Product.js",
-                lineNumber: 13,
+                lineNumber: 20,
                 columnNumber: 7
             }, undefined)
         ]
