@@ -26507,7 +26507,6 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _reactRouterDom = require("react-router-dom");
-var _react = require("react");
 var _skeleton = require("./Skeleton");
 var _skeletonDefault = parcelHelpers.interopDefault(_skeleton);
 var _useGetSingleProduct = require("../Hook/useGetSingleProduct");
@@ -26519,59 +26518,96 @@ const ProductDetails = ()=>{
     const singleProduct = (0, _useGetSingleProductDefault.default)(productId);
     if (singleProduct == null) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _skeletonDefault.default), {}, void 0, false, {
         fileName: "src/components/ProductDetails.js",
-        lineNumber: 12,
+        lineNumber: 10,
         columnNumber: 12
     }, undefined);
-    const { image, title, price, description } = singleProduct;
+    const { image, title, price, description, rating } = singleProduct;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "product",
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                className: "product_img",
-                src: image
-            }, void 0, false, {
-                fileName: "src/components/ProductDetails.js",
-                lineNumber: 19,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                children: title
-            }, void 0, false, {
-                fileName: "src/components/ProductDetails.js",
-                lineNumber: 20,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: [
-                    singleProduct.rating.rate,
-                    " Ratings "
-                ]
-            }, void 0, true, {
-                fileName: "src/components/ProductDetails.js",
-                lineNumber: 21,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: [
-                    "Price: ",
-                    price
-                ]
-            }, void 0, true, {
-                fileName: "src/components/ProductDetails.js",
-                lineNumber: 22,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: description
-            }, void 0, false, {
-                fileName: "src/components/ProductDetails.js",
-                lineNumber: 23,
-                columnNumber: 7
-            }, undefined)
-        ]
-    }, void 0, true, {
+        className: "max-w-4xl mx-auto px-4 py-8",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "bg-white rounded-lg shadow-md grid grid-cols-1 md:grid-cols-2 gap-6 p-6",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "flex items-center justify-center",
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                        src: image,
+                        alt: title,
+                        className: "w-full max-w-xs object-contain rounded-md"
+                    }, void 0, false, {
+                        fileName: "src/components/ProductDetails.js",
+                        lineNumber: 21,
+                        columnNumber: 11
+                    }, undefined)
+                }, void 0, false, {
+                    fileName: "src/components/ProductDetails.js",
+                    lineNumber: 20,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "flex flex-col justify-center space-y-3",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                            className: "text-2xl font-bold text-gray-800",
+                            children: title
+                        }, void 0, false, {
+                            fileName: "src/components/ProductDetails.js",
+                            lineNumber: 30,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            className: "text-yellow-600 text-base font-medium",
+                            children: [
+                                "\u2B50 ",
+                                rating?.rate,
+                                " Ratings"
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/ProductDetails.js",
+                            lineNumber: 31,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            className: "text-xl font-bold text-green-700",
+                            children: [
+                                "Price: \u20B9",
+                                price
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/ProductDetails.js",
+                            lineNumber: 34,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            className: "text-gray-600 text-sm leading-relaxed",
+                            children: description
+                        }, void 0, false, {
+                            fileName: "src/components/ProductDetails.js",
+                            lineNumber: 35,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            className: "w-fit px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition duration-300",
+                            children: "Add to Cart"
+                        }, void 0, false, {
+                            fileName: "src/components/ProductDetails.js",
+                            lineNumber: 36,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/ProductDetails.js",
+                    lineNumber: 29,
+                    columnNumber: 9
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/ProductDetails.js",
+            lineNumber: 17,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
         fileName: "src/components/ProductDetails.js",
-        lineNumber: 18,
+        lineNumber: 16,
         columnNumber: 5
     }, undefined);
 };
@@ -26591,7 +26627,7 @@ $RefreshReg$(_c, "ProductDetails");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react-router-dom":"61z4w","./Skeleton":"5I2kz","../Hook/useGetSingleProduct":"2d4gr","react":"jMk1U"}],"2d4gr":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react-router-dom":"61z4w","./Skeleton":"5I2kz","../Hook/useGetSingleProduct":"2d4gr"}],"2d4gr":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$2549 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$2549.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
