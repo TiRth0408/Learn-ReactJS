@@ -25940,7 +25940,6 @@ var prevRefreshSig = globalThis.$RefreshSig$;
 $parcel$ReactRefreshHelpers$7a09.prelude(module);
 
 try {
-// named export
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ProductCard", ()=>ProductCard);
@@ -25955,14 +25954,14 @@ const ProductCard = ()=>{
     _s();
     const [listOfProduct, setListOfProduct] = (0, _react.useState)([]);
     const [filteredProduct, setFilteredProduct] = (0, _react.useState)([]);
-    const [searchText, setSearchText] = (0, _react.useState)([]);
+    const [searchText, setSearchText] = (0, _react.useState)("");
     (0, _react.useEffect)(()=>{
         fetchData();
         const timer = setInterval(()=>{
-            console.log('function component');
+            console.log("function component");
         }, 1000);
         return ()=>{
-            console.log('cleanup function is called');
+            console.log("cleanup function is called");
             clearInterval(timer);
         };
     }, []);
@@ -25972,10 +25971,11 @@ const ProductCard = ()=>{
         setListOfProduct(resData);
         setFilteredProduct(resData);
     };
+    const HOFComponent = (0, _product.HOF)((0, _productDefault.default));
     return listOfProduct.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _skeletonDefault.default), {}, void 0, false, {
         fileName: "src/components/ProductCard.js",
-        lineNumber: 33,
-        columnNumber: 39
+        lineNumber: 35,
+        columnNumber: 5
     }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -25985,34 +25985,33 @@ const ProductCard = ()=>{
                         className: "mt-2.5 flex",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                className: "border border-gray-700 px-1.5 py-1.5",
+                                className: "border border-gray-700 px-2 py-1.5 rounded-l-md outline-none",
                                 type: "text",
+                                placeholder: "Search products...",
                                 onChange: (e)=>setSearchText(e.target.value),
                                 value: searchText
                             }, void 0, false, {
                                 fileName: "src/components/ProductCard.js",
-                                lineNumber: 38,
+                                lineNumber: 40,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                 onClick: ()=>{
-                                    const filterProduct = listOfProduct.filter((product)=>{
-                                        return product.title.toLowerCase().includes(searchText.toLowerCase());
-                                    });
+                                    const filterProduct = listOfProduct.filter((product)=>product.title.toLowerCase().includes(searchText.toLowerCase()));
                                     setFilteredProduct(filterProduct);
                                     setSearchText("");
                                 },
-                                className: "bg-blue-400 px-4 py-1.5 cursor-pointer",
-                                children: " Search"
+                                className: "bg-blue-500 hover:bg-blue-600 text-white px-4 py-1.5 rounded-r-md",
+                                children: "Search"
                             }, void 0, false, {
                                 fileName: "src/components/ProductCard.js",
-                                lineNumber: 40,
+                                lineNumber: 47,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/ProductCard.js",
-                        lineNumber: 36,
+                        lineNumber: 39,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -26020,47 +26019,51 @@ const ProductCard = ()=>{
                             const filterProduct = listOfProduct.filter((product)=>product.rating.rate >= 4);
                             setFilteredProduct(filterProduct);
                         },
-                        style: {
-                            "marginTop": "10px"
-                        },
-                        className: "bg-blue-400 px-4 py-1.5 cursor-pointer",
+                        className: "bg-green-500 hover:bg-green-600 text-white px-4 py-1.5 rounded-md mt-2",
                         children: "Top Rated Product"
                     }, void 0, false, {
                         fileName: "src/components/ProductCard.js",
-                        lineNumber: 51,
-                        columnNumber: 11
+                        lineNumber: 61,
+                        columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/ProductCard.js",
-                lineNumber: 35,
+                lineNumber: 38,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "flex flex-wrap justify-center mt-5 mx-5",
                 children: filteredProduct.map((product)=>{
-                    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDefault.default), {
+                    return product.rating.rate >= 4 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(HOFComponent, {
                         product: product
                     }, product.id, false, {
                         fileName: "src/components/ProductCard.js",
-                        lineNumber: 62,
-                        columnNumber: 21
+                        lineNumber: 77,
+                        columnNumber: 13
+                    }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDefault.default), {
+                        product: product
+                    }, product.id, false, {
+                        fileName: "src/components/ProductCard.js",
+                        lineNumber: 79,
+                        columnNumber: 13
                     }, undefined);
                 })
             }, void 0, false, {
                 fileName: "src/components/ProductCard.js",
-                lineNumber: 59,
+                lineNumber: 74,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/ProductCard.js",
-        lineNumber: 34,
+        lineNumber: 37,
         columnNumber: 5
     }, undefined);
 };
-_s(ProductCard, "+1/aoJP0BS7RFiZnuH57UleQrnA=");
+_s(ProductCard, "O/uEsGevr8/UkX6Akps0Deu3mFk=");
 _c = ProductCard;
+exports.default = ProductCard;
 var _c;
 $RefreshReg$(_c, "ProductCard");
 
@@ -26079,120 +26082,148 @@ $parcel$ReactRefreshHelpers$634b.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "HOF", ()=>HOF);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _reactRouterDom = require("react-router-dom");
 const Product = ({ product })=>{
     const { id, title, image, price, rating } = product;
+    // Condition: Show "Best Seller" if rating is 4 or more
+    const isBestSeller = rating?.rate >= 4;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "w-full sm:w-72 bg-white rounded-2xl shadow-md border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 mb-6 m-10",
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                to: `/product/${id}`,
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                        className: "w-full h-52 object-contain bg-gray-100 p-4 rounded-t-md",
-                        src: image,
-                        alt: title
-                    }, void 0, false, {
-                        fileName: "src/components/Product.js",
-                        lineNumber: 9,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "px-4 py-2",
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                            className: "text-lg font-semibold text-gray-800 hover:text-indigo-600 transition-colors duration-200 line-clamp-2",
+        className: "w-72 bg-white rounded-lg border border-gray-200 shadow transition-transform duration-300 hover:shadow-xl hover:scale-105 m-4 overflow-hidden",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+            to: `/product/${id}`,
+            className: "flex flex-col relative",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "h-48 bg-gray-100 p-4 overflow-hidden relative",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                            className: "w-full h-full object-contain transition-transform duration-300 hover:scale-110",
+                            src: image,
+                            alt: title
+                        }, void 0, false, {
+                            fileName: "src/components/Product.js",
+                            lineNumber: 14,
+                            columnNumber: 11
+                        }, undefined),
+                        isBestSeller && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                            className: "absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 rounded",
+                            children: "Best Seller"
+                        }, void 0, false, {
+                            fileName: "src/components/Product.js",
+                            lineNumber: 22,
+                            columnNumber: 13
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/Product.js",
+                    lineNumber: 13,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "p-4",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                            className: "font-semibold text-gray-800 hover:text-blue-600 line-clamp-2 mb-2 transition-colors duration-300",
                             children: title
                         }, void 0, false, {
                             fileName: "src/components/Product.js",
-                            lineNumber: 15,
+                            lineNumber: 30,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "text-sm text-gray-700",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                    className: "flex items-center mb-1",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                            className: "text-gray-600",
+                                            children: "Rating:"
+                                        }, void 0, false, {
+                                            fileName: "src/components/Product.js",
+                                            lineNumber: 36,
+                                            columnNumber: 15
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                            className: "text-yellow-500 font-semibold ml-1",
+                                            children: rating?.rate ? `${rating.rate} \u{2B50}` : "N/A"
+                                        }, void 0, false, {
+                                            fileName: "src/components/Product.js",
+                                            lineNumber: 37,
+                                            columnNumber: 15
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/Product.js",
+                                    lineNumber: 35,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                    className: "flex items-center",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                            className: "text-gray-600",
+                                            children: "Price:"
+                                        }, void 0, false, {
+                                            fileName: "src/components/Product.js",
+                                            lineNumber: 42,
+                                            columnNumber: 15
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                            className: "text-green-600 font-semibold ml-1",
+                                            children: price ? `$${price}` : "N/A"
+                                        }, void 0, false, {
+                                            fileName: "src/components/Product.js",
+                                            lineNumber: 43,
+                                            columnNumber: 15
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/Product.js",
+                                    lineNumber: 41,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/Product.js",
+                            lineNumber: 34,
                             columnNumber: 11
                         }, undefined)
-                    }, void 0, false, {
-                        fileName: "src/components/Product.js",
-                        lineNumber: 14,
-                        columnNumber: 9
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/Product.js",
-                lineNumber: 8,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "px-4 pb-4 text-sm text-gray-700 space-y-1",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                        className: "flex items-center",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                className: "font-medium text-gray-600",
-                                children: "Rating:"
-                            }, void 0, false, {
-                                fileName: "src/components/Product.js",
-                                lineNumber: 22,
-                                columnNumber: 11
-                            }, undefined),
-                            "\xa0",
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                className: "text-yellow-500 font-semibold",
-                                children: rating ? `${rating.rate} \u{2B50}` : "N/A"
-                            }, void 0, false, {
-                                fileName: "src/components/Product.js",
-                                lineNumber: 23,
-                                columnNumber: 11
-                            }, undefined)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/Product.js",
-                        lineNumber: 21,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                className: "font-medium text-gray-600",
-                                children: "Price:"
-                            }, void 0, false, {
-                                fileName: "src/components/Product.js",
-                                lineNumber: 28,
-                                columnNumber: 11
-                            }, undefined),
-                            "\xa0",
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                className: "text-green-600 font-bold",
-                                children: [
-                                    "$",
-                                    price
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/Product.js",
-                                lineNumber: 29,
-                                columnNumber: 11
-                            }, undefined)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/Product.js",
-                        lineNumber: 27,
-                        columnNumber: 9
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/Product.js",
-                lineNumber: 20,
-                columnNumber: 7
-            }, undefined)
-        ]
-    }, void 0, true, {
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/Product.js",
+                    lineNumber: 29,
+                    columnNumber: 9
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/Product.js",
+            lineNumber: 11,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
         fileName: "src/components/Product.js",
-        lineNumber: 7,
+        lineNumber: 10,
         columnNumber: 5
     }, undefined);
 };
 _c = Product;
 exports.default = Product;
-var _c;
+const HOF = (WrappedProduct)=>{
+    return (props)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(WrappedProduct, {
+            ...props
+        }, void 0, false, {
+            fileName: "src/components/Product.js",
+            lineNumber: 58,
+            columnNumber: 21
+        }, undefined);
+};
+_c1 = HOF;
+var _c, _c1;
 $RefreshReg$(_c, "Product");
+$RefreshReg$(_c1, "HOF");
 
   $parcel$ReactRefreshHelpers$634b.postlude(module);
 } finally {

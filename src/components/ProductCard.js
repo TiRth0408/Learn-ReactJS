@@ -1,24 +1,24 @@
-// named export
-import { useEffect, useState } from "react"
-import Product from "./Product"
+import { useEffect, useState } from "react";
+import Product from "./Product";
 import Skeleton from "./Skeleton";
+import { HOF } from "./Product";
 
 export const ProductCard = () => {
-
   const [listOfProduct, setListOfProduct] = useState([]);
   const [filteredProduct, setFilteredProduct] = useState([]);
-  const [searchText, setSearchText] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     fetchData();
+
     const timer = setInterval(() => {
-      console.log('function component');
+      console.log("function component");
     }, 1000);
 
     return () => {
-      console.log('cleanup function is called');
+      console.log("cleanup function is called");
       clearInterval(timer);
-    }
+    };
   }, []);
 
   const fetchData = async () => {
@@ -27,43 +27,61 @@ export const ProductCard = () => {
 
     setListOfProduct(resData);
     setFilteredProduct(resData);
-  }
+  };
 
+  const HOFComponent = HOF(Product);
 
-  return listOfProduct.length === 0 ? <Skeleton /> : (
+  return listOfProduct.length === 0 ? (
+    <Skeleton />
+  ) : (
     <div>
       <div className="mt-5 flex mx-5 space-x-2">
         <div className="mt-2.5 flex">
-
-          <input className="border border-gray-700 px-1.5 py-1.5" type="text" onChange={(e) => setSearchText(e.target.value)} value={searchText} />
-
-          <button onClick={() => {
-            const filterProduct = listOfProduct.filter((product) => {
-              return product.title.toLowerCase().includes(searchText.toLowerCase());
-            });
-            setFilteredProduct(filterProduct);
-            setSearchText("");
-
-          }} className="bg-blue-400 px-4 py-1.5 cursor-pointer"> Search
+          <input
+            className="border border-gray-700 px-2 py-1.5 rounded-l-md outline-none"
+            type="text"
+            placeholder="Search products..."
+            onChange={(e) => setSearchText(e.target.value)}
+            value={searchText}
+          />
+          <button
+            onClick={() => {
+              const filterProduct = listOfProduct.filter((product) =>
+                product.title.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setFilteredProduct(filterProduct);
+              setSearchText("");
+            }}
+            className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-1.5 rounded-r-md"
+          >
+            Search
           </button>
         </div>
-        
-          <button onClick={() => {
-            const filterProduct = listOfProduct.filter(product => product.rating.rate >= 4);
-            setFilteredProduct(filterProduct);
-          }} style={{ "marginTop": "10px" }} className="bg-blue-400 px-4 py-1.5 cursor-pointer">Top Rated Product
-          </button>
 
+        <button
+          onClick={() => {
+            const filterProduct = listOfProduct.filter(
+              (product) => product.rating.rate >= 4
+            );
+            setFilteredProduct(filterProduct);
+          }}
+          className="bg-green-500 hover:bg-green-600 text-white px-4 py-1.5 rounded-md mt-2"
+        >
+          Top Rated Product
+        </button>
       </div>
 
       <div className="flex flex-wrap justify-center mt-5 mx-5">
-        {
-          filteredProduct.map((product) => {
-            return (<Product key={product.id} product={product} />)
-          })
-        }
+        {filteredProduct.map((product) => {
+          return product.rating.rate >= 4 ? (
+            <HOFComponent key={product.id} product={product} />
+          ) : (
+            <Product key={product.id} product={product} />
+          );
+        })}
       </div>
-
     </div>
-  )
-}
+  );
+};
+
+export default ProductCard;
