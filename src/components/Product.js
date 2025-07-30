@@ -12,8 +12,8 @@ const Product = ({ product }) => {
         {/* Product Image */}
         <div className="h-48 bg-gray-100 p-4 overflow-hidden relative">
           <img
-            className="w-full h-full object-contain transition-transform duration-300 hover:scale-110"
-            src={image}
+            className="max-h-full max-w-full object-contain transition-transform duration-300 hover:scale-110"
+            src={Array.isArray(image) ? image[0] : image}
             alt={title}
           />
 

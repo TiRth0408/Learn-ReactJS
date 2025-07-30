@@ -1,6 +1,10 @@
-import React , {Suspense , lazy} from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+} from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Error from "./components/Error";
@@ -10,11 +14,11 @@ import Kid from "./components/Kid";
 import Cart from "./components/Cart";
 import ProductDetails from "./components/ProductDetails";
 import { ProductCard } from "./components/ProductCard";
-// import About from "./components/About";
-// import Grocery from "./components/Grocery";
+import CategoryPage from "./components/CategoryPage"; // ✅ NEW
 
-const Grocery = lazy(() => import('./components/Grocery'));
-const About = lazy(() => import('./components/About'));
+const Grocery = lazy(() => import("./components/Grocery"));
+const About = lazy(() => import("./components/About"));
+
 const App = () => {
   return (
     <div>
@@ -52,7 +56,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <Suspense fallback={<h1>Loading...</h1>}> <About /> </Suspense>,
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <About />
+          </Suspense>
+        ),
       },
       {
         path: "/product/:productId",
@@ -60,8 +68,16 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/grocery",
-        element: <Suspense fallback={<h1>Loading...</h1>}> <Grocery /> </Suspense>,
-      }
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <Grocery />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/category/:categoryName", 
+        element: <CategoryPage />,
+      },
     ],
   },
 ]);

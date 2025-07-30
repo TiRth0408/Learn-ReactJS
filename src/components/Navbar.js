@@ -1,27 +1,19 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [btnName, setBtnName] = useState("Light");
-
   return (
-    <div className="flex justify-between px-10 py-5 shadow-md">
-      <h1 className="font-bold text-2xl" >AJIO</h1>
-      <ul className="flex justify-between w-[40%]">
-        <li><Link to="/men">MEN</Link></li>
-        <li><Link to="/women">WOMEN</Link></li>
-        <li><Link to="/kid">KID</Link></li>
-        <li><Link to="/about">ABOUT</Link></li>
-        <li><Link to="/cart">CART</Link></li>
-        <li><Link to="/grocery">GROCERY</Link></li>
-        {/* <button className="px-6 rounded-sm" onClick={() => {
-          setBtnName(btnName === "Light" ? "Dark" : "Light");
-        }}>
-          {btnName}
-        </button> */}
-      </ul>
+    <nav className="bg-white dark:bg-gray-900 px-6 py-4 shadow flex items-center justify-between">
+      <h1 className="text-xl font-bold text-gray-800 dark:text-white">
+        Product Shop
+      </h1>
 
-    </div>
+      <ul className="flex gap-4 text-gray-600 dark:text-gray-300">
+        <li><Link to="/" className="hover:text-blue-500">Home</Link></li>
+        <li><Link to="/category/beauty">Makeup</Link></li>
+        <li><Link to="/category/fragrances">Perfume</Link></li>
+        <li><Link to="/category/furniture">Furniture</Link></li>
+      </ul>
+    </nav>
   );
 };
 

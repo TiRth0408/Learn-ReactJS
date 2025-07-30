@@ -22,11 +22,25 @@ export const ProductCard = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch("https://fakestoreapi.com/products");
-    const resData = await data.json();
+    try {
+      const response = await fetch("https://dummyjson.com/products?limit=20");
+      const data = await response.json();
 
-    setListOfProduct(resData);
-    setFilteredProduct(resData);
+      // Format the product data
+      const formattedProducts = data.products.map((product) => ({
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        description: product.description,
+        image: product.thumbnail,
+        rating: { rate: product.rating },
+      }));
+
+      setListOfProduct(formattedProducts);
+      setFilteredProduct(formattedProducts);
+    } catch (error) {
+      console.error("Failed to fetch products:", error);
+    }
   };
 
   const HOFComponent = HOF(Product);

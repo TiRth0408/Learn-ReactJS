@@ -1,16 +1,32 @@
+// src/Hook/useGetSingleProduct.js
 import { useEffect, useState } from "react";
 
-const useGetSingleProduct = (productId) => {
-  const [singleProduct , setSingleProduct] = useState(null);
-  useEffect(() => {
-    fetchSingleProduct();
-  }, []);
+const useGetSingleProduct = (id) => {
+  const [singleProduct, setSingleProduct] = useState(null);
 
-  const fetchSingleProduct = async () => {
-    const data = await fetch(`https://fakestoreapi.com/products/${productId}`);
-    const jsonData = await data.json();
-    setSingleProduct(jsonData);
-  }
+  useEffect(() => {
+    const fetchSingleProduct = async () => {
+      try {
+        const response = await fetch(`https://dummyjson.com/products/${id}`);
+        const data = await response.json();
+
+        const formattedProduct = {
+          id: data.id,
+          title: data.title,
+          price: data.price,
+          description: data.description,
+          image: data.thumbnail,
+          rating: { rate: data.rating },
+        };
+
+        setSingleProduct(formattedProduct);
+      } catch (error) {
+        console.error("Failed to fetch single product:", error);
+      }
+    };
+
+    fetchSingleProduct();
+  }, [id]);
 
   return singleProduct;
 };
