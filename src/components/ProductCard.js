@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import Product from "./Product";
+import Product, { HOF } from "./Product";
 import Skeleton from "./Skeleton";
-import { HOF } from "./Product";
 
 export const ProductCard = () => {
   const [listOfProduct, setListOfProduct] = useState([]);
@@ -23,25 +22,31 @@ export const ProductCard = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("https://dummyjson.com/products?limit=20");
-      const data = await response.json();
+      const response = await fetch("https://fakestoreapi.com/products");
 
-      // Format the product data
-      const formattedProducts = data.products.map((product) => ({
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log("Fetched data:", data); // ✅ Add this
+
+      const formattedProducts = data.map((product) => ({
         id: product.id,
         title: product.title,
         price: product.price,
         description: product.description,
-        image: product.thumbnail,
-        rating: { rate: product.rating },
+        image: product.image,
+        rating: { rate: product.rating.rate },
       }));
 
       setListOfProduct(formattedProducts);
       setFilteredProduct(formattedProducts);
     } catch (error) {
-      console.error("Failed to fetch products:", error);
+      console.error("Failed to fetch products:", error.message);
     }
   };
+
 
   const HOFComponent = HOF(Product);
 
@@ -86,13 +91,13 @@ export const ProductCard = () => {
       </div>
 
       <div className="flex flex-wrap justify-center mt-5 mx-5">
-        {filteredProduct.map((product) => {
-          return product.rating.rate >= 4 ? (
+        {filteredProduct.map((product) =>
+          product.rating.rate >= 4 ? (
             <HOFComponent key={product.id} product={product} />
           ) : (
             <Product key={product.id} product={product} />
-          );
-        })}
+          )
+        )}
       </div>
     </div>
   );

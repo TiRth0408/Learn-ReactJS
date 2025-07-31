@@ -1,18 +1,40 @@
 import { Link } from "react-router-dom";
-
 const Navbar = () => {
   return (
-    <nav className="bg-white dark:bg-gray-900 px-6 py-4 shadow flex items-center justify-between">
-      <h1 className="text-xl font-bold text-gray-800 dark:text-white">
-        Product Shop
-      </h1>
+    <nav className="bg-white shadow-md sticky top-0 z-50">
+      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+        <Link to="/" className="text-2xl font-bold text-blue-600">
+          AJIO
+        </Link>
 
-      <ul className="flex gap-4 text-gray-600 dark:text-gray-300">
-        <li><Link to="/" className="hover:text-blue-500">Home</Link></li>
-        <li><Link to="/category/beauty">Makeup</Link></li>
-        <li><Link to="/category/fragrances">Perfume</Link></li>
-        <li><Link to="/category/furniture">Furniture</Link></li>
-      </ul>
+        <ul className="flex space-x-6 font-medium text-gray-700">
+          <li>
+            <Link to="/men" className="hover:text-blue-500 transition">
+              Men
+            </Link>
+          </li>
+          <li>
+            <Link to="/women" className="hover:text-blue-500 transition">
+              Women
+            </Link>
+          </li>
+          <li>
+            <Link to="/electronics" className="hover:text-blue-500 transition">
+              Electronics
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" className="hover:text-blue-500 transition">
+              About
+            </Link>
+          </li>
+          <li>
+            <Link to="/cart" className="hover:text-blue-500 transition">
+              Cart
+            </Link>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 };

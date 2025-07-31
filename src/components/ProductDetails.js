@@ -1,37 +1,63 @@
-// src/components/ProductDetails.js
 import { useParams } from "react-router-dom";
-import useGetSingleProduct from "../Hook/useGetSingleProduct";
-import Skeleton from "./Skeleton";
+import { useEffect, useState } from "react";
 
 const ProductDetails = () => {
-  const { productId } = useParams();
-  const product = useGetSingleProduct(productId);
+  const { id } = useParams();
+  const [product, setProduct] = useState(null);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
 
-  if (!product) return <Skeleton />;
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+        if (!response.ok) throw new Error("Failed to fetch product details.");
+        const data = await response.json();
+        setProduct(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const { title, price, image, description, rating } = product;
+    fetchProduct();
+  }, [id]);
+
+  if (loading) return <div className="text-center mt-8">Loading...</div>;
+  if (error) return <div className="text-center text-red-500 mt-8">{error}</div>;
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
-      <div className="bg-white rounded-lg shadow-md grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
-        {/* Image */}
-        <div className="flex items-center justify-center">
+    <div className="max-w-5xl mx-auto px-4 py-8">
+      <div className="bg-white rounded-xl shadow-lg p-6 grid md:grid-cols-2 gap-6">
+        {/* Product Image */}
+        <div className="flex justify-center items-center">
           <img
-            src={image}
-            alt={title}
-            className="w-full max-w-xs max-h-[300px] object-contain rounded-md"
+            src={product.image}
+            alt={product.title}
+            className="w-full max-w-xs h-auto object-contain"
           />
         </div>
 
-        {/* Product Info */}
-        <div className="flex flex-col justify-center space-y-4">
-          <h1 className="text-3xl font-bold text-gray-800">{title}</h1>
-          <p className="text-yellow-600 text-lg font-medium">
-            ⭐ {rating?.rate} Ratings
+        {/* Product Details */}
+        <div>
+          <h1 className="text-2xl font-bold mb-2">{product.title}</h1>
+          <p className="text-gray-600 mb-4">{product.description}</p>
+
+          <p className="text-xl text-green-600 font-semibold mb-2">
+            ${product.price}
           </p>
-          <p className="text-2xl font-bold text-green-700">Price: ${price}</p>
-          <p className="text-gray-700 text-sm leading-relaxed">{description}</p>
-          <button className="w-fit px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition duration-300">
+
+          <p className="mb-2">
+            <span className="text-yellow-500">⭐ {product.rating.rate}</span>
+            <span className="text-gray-500 ml-2">({product.rating.count} reviews)</span>
+          </p>
+
+          <p className="text-sm text-gray-500 mb-4">
+            Category: <span className="capitalize">{product.category}</span>
+          </p>
+
+          <button className="mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
             Add to Cart
           </button>
         </div>

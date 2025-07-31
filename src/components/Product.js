@@ -1,51 +1,32 @@
 import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
-  const { id, title, image, price, rating } = product;
-
-  // Condition: Show "Best Seller" if rating is 4 or more
+  const { id, title, price, rating, image } = product; // ✅ image is a string (FakeStoreAPI)
   const isBestSeller = rating?.rate >= 4;
 
   return (
-    <div className="w-72 bg-white rounded-lg border border-gray-200 shadow transition-transform duration-300 hover:shadow-xl hover:scale-105 m-4 overflow-hidden">
-      <Link to={`/product/${id}`} className="flex flex-col relative">
-        {/* Product Image */}
-        <div className="h-48 bg-gray-100 p-4 overflow-hidden relative">
-          <img
-            className="max-h-full max-w-full object-contain transition-transform duration-300 hover:scale-110"
-            src={Array.isArray(image) ? image[0] : image}
-            alt={title}
-          />
+    <div className="w-64 bg-white rounded-lg shadow-md m-3 transform transition duration-300 hover:scale-105 hover:shadow-xl relative">
+      <Link to={`/product/${id}`} className="block p-4 text-center">
+        {isBestSeller && (
+          <span className="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 rounded shadow z-10">
+            Best Seller
+          </span>
+        )}
 
-          {/* Best Seller badge: always visible if rating >= 4 */}
-          {isBestSeller && (
-            <span className="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 rounded">
-              Best Seller
-            </span>
-          )}
-        </div>
+        {/* ✅ Use single image from FakeStoreAPI */}
+        <img
+          src={image}
+          alt={title}
+          className="h-36 mx-auto object-contain mb-3"
+        />
 
-        {/* Product Info */}
-        <div className="p-4">
-          <h2 className="font-semibold text-gray-800 hover:text-blue-600 line-clamp-2 mb-2 transition-colors duration-300">
-            {title}
-          </h2>
+        <h3 className="text-sm font-medium mb-1">
+          {title.length > 40 ? title.slice(0, 40) + "..." : title}
+        </h3>
 
-          <div className="text-sm text-gray-700">
-            <p className="flex items-center mb-1">
-              <span className="text-gray-600">Rating:</span>
-              <span className="text-yellow-500 font-semibold ml-1">
-                {rating?.rate ? `${rating.rate} ⭐` : "N/A"}
-              </span>
-            </p>
-            <p className="flex items-center">
-              <span className="text-gray-600">Price:</span>
-              <span className="text-green-600 font-semibold ml-1">
-                {price ? `$${price}` : "N/A"}
-              </span>
-            </p>
-          </div>
-        </div>
+        <p className="text-green-600 font-semibold">${price}</p>
+
+        <p className="text-yellow-500 text-sm mt-1">⭐ {rating?.rate} / 5</p>
       </Link>
     </div>
   );
@@ -53,7 +34,11 @@ const Product = ({ product }) => {
 
 export default Product;
 
-// HOF can stay as-is or be removed if unused
-export const HOF = (WrappedProduct) => {
-  return (props) => <WrappedProduct {...props} />;
+// Highlight wrapper for top-rated products
+export const HOF = (Component) => {
+  return (props) => (
+    <div>
+      <Component {...props} />
+    </div>
+  );
 };

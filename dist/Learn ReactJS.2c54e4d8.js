@@ -681,6 +681,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _client = require("react-dom/client");
 var _clientDefault = parcelHelpers.interopDefault(_client);
 var _reactRouterDom = require("react-router-dom");
+// Core components
 var _navbar = require("./components/Navbar");
 var _navbarDefault = parcelHelpers.interopDefault(_navbar);
 var _error = require("./components/Error");
@@ -689,51 +690,55 @@ var _men = require("./components/Men");
 var _menDefault = parcelHelpers.interopDefault(_men);
 var _women = require("./components/Women");
 var _womenDefault = parcelHelpers.interopDefault(_women);
-var _kid = require("./components/Kid");
-var _kidDefault = parcelHelpers.interopDefault(_kid);
+var _electronics = require("./components/Electronics");
+var _electronicsDefault = parcelHelpers.interopDefault(_electronics);
 var _cart = require("./components/Cart");
 var _cartDefault = parcelHelpers.interopDefault(_cart);
 var _productDetails = require("./components/ProductDetails");
 var _productDetailsDefault = parcelHelpers.interopDefault(_productDetails);
 var _productCard = require("./components/ProductCard");
-var _categoryPage = require("./components/CategoryPage"); // ✅ NEW
+var _categoryPage = require("./components/CategoryPage");
 var _categoryPageDefault = parcelHelpers.interopDefault(_categoryPage);
-const Grocery = /*#__PURE__*/ (0, _react.lazy)(()=>require("6bf9e24f54814dcb"));
+// Lazy-loaded components
+const Grocery = /*#__PURE__*/ (0, _react.lazy)(()=>require("73d98ef7f39d479d"));
 _c = Grocery;
 const About = /*#__PURE__*/ (0, _react.lazy)(()=>require("e9c452bf08808b49"));
 _c1 = About;
+// Layout Component
 const App = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "min-h-screen bg-gray-50",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navbarDefault.default), {}, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 25,
+                lineNumber: 28,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {}, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 26,
+                lineNumber: 29,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/App.js",
-        lineNumber: 24,
+        lineNumber: 27,
         columnNumber: 5
     }, undefined);
 };
 _c2 = App;
+// Router setup
 const appRouter = (0, _reactRouterDom.createBrowserRouter)([
     {
         path: "/",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
             fileName: "src/App.js",
-            lineNumber: 34,
+            lineNumber: 38,
             columnNumber: 14
         }, undefined),
         errorElement: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _errorDefault.default), {}, void 0, false, {
             fileName: "src/App.js",
-            lineNumber: 35,
+            lineNumber: 39,
             columnNumber: 19
         }, undefined),
         children: [
@@ -741,20 +746,12 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                 index: true,
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productCard.ProductCard), {}, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 39,
-                    columnNumber: 18
-                }, undefined)
-            },
-            {
-                path: "/kid",
-                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _kidDefault.default), {}, void 0, false, {
-                    fileName: "src/App.js",
                     lineNumber: 43,
                     columnNumber: 18
                 }, undefined)
             },
             {
-                path: "/men",
+                path: "men",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _menDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
                     lineNumber: 47,
@@ -762,7 +759,7 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                 }, undefined)
             },
             {
-                path: "/women",
+                path: "women",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _womenDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
                     lineNumber: 51,
@@ -770,7 +767,7 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                 }, undefined)
             },
             {
-                path: "/cart",
+                path: "cart",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cartDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
                     lineNumber: 55,
@@ -778,72 +775,73 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                 }, undefined)
             },
             {
-                path: "/about",
+                path: "product/:id",
+                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDetailsDefault.default), {}, void 0, false, {
+                    fileName: "src/App.js",
+                    lineNumber: 59,
+                    columnNumber: 18
+                }, undefined)
+            },
+            {
+                path: "electronics",
+                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _electronicsDefault.default), {}, void 0, false, {
+                    fileName: "src/App.js",
+                    lineNumber: 63,
+                    columnNumber: 18
+                }, undefined)
+            },
+            {
+                path: "about",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Suspense), {
                     fallback: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
                         children: "Loading..."
                     }, void 0, false, {
                         fileName: "src/App.js",
-                        lineNumber: 60,
+                        lineNumber: 68,
                         columnNumber: 31
                     }, void 0),
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(About, {}, void 0, false, {
                         fileName: "src/App.js",
-                        lineNumber: 61,
+                        lineNumber: 69,
                         columnNumber: 13
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 60,
+                    lineNumber: 68,
                     columnNumber: 11
                 }, undefined)
             },
             {
-                path: "/product/:productId",
-                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDetailsDefault.default), {}, void 0, false, {
-                    fileName: "src/App.js",
-                    lineNumber: 67,
-                    columnNumber: 18
-                }, undefined)
-            },
-            {
-                path: "/grocery",
+                path: "grocery",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Suspense), {
                     fallback: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
                         children: "Loading..."
                     }, void 0, false, {
                         fileName: "src/App.js",
-                        lineNumber: 72,
+                        lineNumber: 76,
                         columnNumber: 31
                     }, void 0),
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Grocery, {}, void 0, false, {
                         fileName: "src/App.js",
-                        lineNumber: 73,
+                        lineNumber: 77,
                         columnNumber: 13
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 72,
+                    lineNumber: 76,
                     columnNumber: 11
-                }, undefined)
-            },
-            {
-                path: "/category/:categoryName",
-                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _categoryPageDefault.default), {}, void 0, false, {
-                    fileName: "src/App.js",
-                    lineNumber: 79,
-                    columnNumber: 18
                 }, undefined)
             }
         ]
     }
 ]);
+// Render app
 const root = (0, _clientDefault.default).createRoot(document.getElementById("root"));
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.RouterProvider), {
     router: appRouter
 }, void 0, false, {
     fileName: "src/App.js",
-    lineNumber: 86,
+    lineNumber: 87,
     columnNumber: 13
 }, undefined));
 var _c, _c1, _c2;
@@ -856,7 +854,7 @@ $RefreshReg$(_c2, "App");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-dom/client":"hrvwu","./components/Navbar":"99RRu","./components/ProductCard":"48s29","react-router-dom":"61z4w","./components/Error":"8NIKV","./components/ProductDetails":"dsChn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","6bf9e24f54814dcb":"baeVm","e9c452bf08808b49":"3DmBm","./components/Men":"7xcAl","./components/Women":"l6hve","./components/Kid":"2vx74","./components/Cart":"h9Vh3","./components/CategoryPage":"lba75"}],"dVPUn":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-dom/client":"hrvwu","./components/Navbar":"99RRu","./components/ProductCard":"48s29","react-router-dom":"61z4w","./components/Error":"8NIKV","./components/ProductDetails":"dsChn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","e9c452bf08808b49":"3DmBm","./components/Men":"7xcAl","./components/Women":"l6hve","./components/Cart":"h9Vh3","./components/CategoryPage":"lba75","73d98ef7f39d479d":"3jqUq","./components/Electronics":"dWJZM"}],"dVPUn":[function(require,module,exports,__globalThis) {
 'use strict';
 module.exports = require("ee51401569654d91");
 
@@ -1051,13 +1049,13 @@ module.exports = require("ee51401569654d91");
         return null;
     };
     React = {
-        "react-stack-bottom-frame": function(callStackForError) {
+        react_stack_bottom_frame: function(callStackForError) {
             return callStackForError();
         }
     };
     var specialPropKeyWarningShown;
     var didWarnAboutElementRef = {};
-    var unknownOwnerDebugStack = React["react-stack-bottom-frame"].bind(React, UnknownOwner)();
+    var unknownOwnerDebugStack = React.react_stack_bottom_frame.bind(React, UnknownOwner)();
     var unknownOwnerDebugTask = createTask(getTaskName(UnknownOwner));
     var didWarnAboutKeySpread = {};
     exports.Fragment = REACT_FRAGMENT_TYPE;
@@ -1489,13 +1487,13 @@ module.exports = require("a569817e6ea559f6");
         return null;
     };
     deprecatedAPIs = {
-        "react-stack-bottom-frame": function(callStackForError) {
+        react_stack_bottom_frame: function(callStackForError) {
             return callStackForError();
         }
     };
     var specialPropKeyWarningShown, didWarnAboutOldJSXRuntime;
     var didWarnAboutElementRef = {};
-    var unknownOwnerDebugStack = deprecatedAPIs["react-stack-bottom-frame"].bind(deprecatedAPIs, UnknownOwner)();
+    var unknownOwnerDebugStack = deprecatedAPIs.react_stack_bottom_frame.bind(deprecatedAPIs, UnknownOwner)();
     var unknownOwnerDebugTask = createTask(getTaskName(UnknownOwner));
     var didWarnAboutMaps = !1, userProvidedKeyEscapeRegex = /\/+/g, reportGlobalError = "function" === typeof reportError ? reportError : function(error) {
         if ("object" === typeof window && "function" === typeof window.ErrorEvent) {
@@ -1822,7 +1820,7 @@ module.exports = require("a569817e6ea559f6");
     exports.useTransition = function() {
         return resolveDispatcher().useTransition();
     };
-    exports.version = "19.1.0";
+    exports.version = "19.1.1";
     "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(Error());
 })();
 
@@ -2849,7 +2847,7 @@ module.exports = require("2b53550ce04dc092");
         error.startsWith("Error: react-stack-top-frame\n") && (error = error.slice(29));
         prevPrepareStackTrace = error.indexOf("\n");
         -1 !== prevPrepareStackTrace && (error = error.slice(prevPrepareStackTrace + 1));
-        prevPrepareStackTrace = error.indexOf("react-stack-bottom-frame");
+        prevPrepareStackTrace = error.indexOf("react_stack_bottom_frame");
         -1 !== prevPrepareStackTrace && (prevPrepareStackTrace = error.lastIndexOf("\n", prevPrepareStackTrace));
         if (-1 !== prevPrepareStackTrace) error = error.slice(0, prevPrepareStackTrace);
         else return "";
@@ -15256,7 +15254,7 @@ module.exports = require("2b53550ce04dc092");
         }
     };
     var callComponent = {
-        "react-stack-bottom-frame": function(Component, props, secondArg) {
+        react_stack_bottom_frame: function(Component, props, secondArg) {
             var wasRendering = isRendering;
             isRendering = !0;
             try {
@@ -15265,8 +15263,8 @@ module.exports = require("2b53550ce04dc092");
                 isRendering = wasRendering;
             }
         }
-    }, callComponentInDEV = callComponent["react-stack-bottom-frame"].bind(callComponent), callRender = {
-        "react-stack-bottom-frame": function(instance) {
+    }, callComponentInDEV = callComponent.react_stack_bottom_frame.bind(callComponent), callRender = {
+        react_stack_bottom_frame: function(instance) {
             var wasRendering = isRendering;
             isRendering = !0;
             try {
@@ -15275,59 +15273,59 @@ module.exports = require("2b53550ce04dc092");
                 isRendering = wasRendering;
             }
         }
-    }, callRenderInDEV = callRender["react-stack-bottom-frame"].bind(callRender), callComponentDidMount = {
-        "react-stack-bottom-frame": function(finishedWork, instance) {
+    }, callRenderInDEV = callRender.react_stack_bottom_frame.bind(callRender), callComponentDidMount = {
+        react_stack_bottom_frame: function(finishedWork, instance) {
             try {
                 instance.componentDidMount();
             } catch (error) {
                 captureCommitPhaseError(finishedWork, finishedWork.return, error);
             }
         }
-    }, callComponentDidMountInDEV = callComponentDidMount["react-stack-bottom-frame"].bind(callComponentDidMount), callComponentDidUpdate = {
-        "react-stack-bottom-frame": function(finishedWork, instance, prevProps, prevState, snapshot) {
+    }, callComponentDidMountInDEV = callComponentDidMount.react_stack_bottom_frame.bind(callComponentDidMount), callComponentDidUpdate = {
+        react_stack_bottom_frame: function(finishedWork, instance, prevProps, prevState, snapshot) {
             try {
                 instance.componentDidUpdate(prevProps, prevState, snapshot);
             } catch (error) {
                 captureCommitPhaseError(finishedWork, finishedWork.return, error);
             }
         }
-    }, callComponentDidUpdateInDEV = callComponentDidUpdate["react-stack-bottom-frame"].bind(callComponentDidUpdate), callComponentDidCatch = {
-        "react-stack-bottom-frame": function(instance, errorInfo) {
+    }, callComponentDidUpdateInDEV = callComponentDidUpdate.react_stack_bottom_frame.bind(callComponentDidUpdate), callComponentDidCatch = {
+        react_stack_bottom_frame: function(instance, errorInfo) {
             var stack = errorInfo.stack;
             instance.componentDidCatch(errorInfo.value, {
                 componentStack: null !== stack ? stack : ""
             });
         }
-    }, callComponentDidCatchInDEV = callComponentDidCatch["react-stack-bottom-frame"].bind(callComponentDidCatch), callComponentWillUnmount = {
-        "react-stack-bottom-frame": function(current, nearestMountedAncestor, instance) {
+    }, callComponentDidCatchInDEV = callComponentDidCatch.react_stack_bottom_frame.bind(callComponentDidCatch), callComponentWillUnmount = {
+        react_stack_bottom_frame: function(current, nearestMountedAncestor, instance) {
             try {
                 instance.componentWillUnmount();
             } catch (error) {
                 captureCommitPhaseError(current, nearestMountedAncestor, error);
             }
         }
-    }, callComponentWillUnmountInDEV = callComponentWillUnmount["react-stack-bottom-frame"].bind(callComponentWillUnmount), callCreate = {
-        "react-stack-bottom-frame": function(effect) {
+    }, callComponentWillUnmountInDEV = callComponentWillUnmount.react_stack_bottom_frame.bind(callComponentWillUnmount), callCreate = {
+        react_stack_bottom_frame: function(effect) {
             null != effect.resourceKind && console.error("Expected only SimpleEffects when enableUseEffectCRUDOverload is disabled, got %s", effect.resourceKind);
             var create = effect.create;
             effect = effect.inst;
             create = create();
             return effect.destroy = create;
         }
-    }, callCreateInDEV = callCreate["react-stack-bottom-frame"].bind(callCreate), callDestroy = {
-        "react-stack-bottom-frame": function(current, nearestMountedAncestor, destroy) {
+    }, callCreateInDEV = callCreate.react_stack_bottom_frame.bind(callCreate), callDestroy = {
+        react_stack_bottom_frame: function(current, nearestMountedAncestor, destroy) {
             try {
                 destroy();
             } catch (error) {
                 captureCommitPhaseError(current, nearestMountedAncestor, error);
             }
         }
-    }, callDestroyInDEV = callDestroy["react-stack-bottom-frame"].bind(callDestroy), callLazyInit = {
-        "react-stack-bottom-frame": function(lazy) {
+    }, callDestroyInDEV = callDestroy.react_stack_bottom_frame.bind(callDestroy), callLazyInit = {
+        react_stack_bottom_frame: function(lazy) {
             var init = lazy._init;
             return init(lazy._payload);
         }
-    }, callLazyInitInDEV = callLazyInit["react-stack-bottom-frame"].bind(callLazyInit), thenableState = null, thenableIndexCounter = 0, currentDebugInfo = null, didWarnAboutMaps;
+    }, callLazyInitInDEV = callLazyInit.react_stack_bottom_frame.bind(callLazyInit), thenableState = null, thenableIndexCounter = 0, currentDebugInfo = null, didWarnAboutMaps;
     var didWarnAboutGenerators = didWarnAboutMaps = !1;
     var ownerHasKeyUseWarning = {};
     var ownerHasFunctionTypeWarning = {};
@@ -15732,7 +15730,7 @@ module.exports = require("2b53550ce04dc092");
     };
     (function() {
         var isomorphicReactPackageVersion = React.version;
-        if ("19.1.0" !== isomorphicReactPackageVersion) throw Error('Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:\n  - react:      ' + (isomorphicReactPackageVersion + "\n  - react-dom:  19.1.0\nLearn more: https://react.dev/warnings/version-mismatch"));
+        if ("19.1.1" !== isomorphicReactPackageVersion) throw Error('Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:\n  - react:      ' + (isomorphicReactPackageVersion + "\n  - react-dom:  19.1.1\nLearn more: https://react.dev/warnings/version-mismatch"));
     })();
     "function" === typeof Map && null != Map.prototype && "function" === typeof Map.prototype.forEach && "function" === typeof Set && null != Set.prototype && "function" === typeof Set.prototype.clear && "function" === typeof Set.prototype.forEach || console.error("React depends on Map and Set built-in types. Make sure that you load a polyfill in older browsers. https://react.dev/link/react-polyfills");
     ReactDOMSharedInternals.findDOMNode = function(componentOrElement) {
@@ -15750,10 +15748,10 @@ module.exports = require("2b53550ce04dc092");
     if (!function() {
         var internals = {
             bundleType: 1,
-            version: "19.1.0",
+            version: "19.1.1",
             rendererPackageName: "react-dom",
             currentDispatcherRef: ReactSharedInternals,
-            reconcilerVersion: "19.1.0"
+            reconcilerVersion: "19.1.1"
         };
         internals.overrideHookState = overrideHookState;
         internals.overrideHookStateDeletePath = overrideHookStateDeletePath;
@@ -15807,7 +15805,7 @@ module.exports = require("2b53550ce04dc092");
         listenToAllSupportedEvents(container);
         return new ReactDOMHydrationRoot(initialChildren);
     };
-    exports.version = "19.1.0";
+    exports.version = "19.1.1";
     "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(Error());
 })();
 
@@ -16251,7 +16249,7 @@ module.exports = require("b0f0e6b9e8349dac");
     exports.useFormStatus = function() {
         return resolveDispatcher().useHostTransitionStatus();
     };
-    exports.version = "19.1.0";
+    exports.version = "19.1.1";
     "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(Error());
 })();
 
@@ -16269,86 +16267,112 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _reactRouterDom = require("react-router-dom");
 const Navbar = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
-        className: "bg-white dark:bg-gray-900 px-6 py-4 shadow flex items-center justify-between",
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                className: "text-xl font-bold text-gray-800 dark:text-white",
-                children: "Product Shop"
-            }, void 0, false, {
-                fileName: "src/components/Navbar.js",
-                lineNumber: 6,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                className: "flex gap-4 text-gray-600 dark:text-gray-300",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                            to: "/",
-                            className: "hover:text-blue-500",
-                            children: "Home"
+        className: "bg-white shadow-md sticky top-0 z-50",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "container mx-auto px-4 py-3 flex justify-between items-center",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                    to: "/",
+                    className: "text-2xl font-bold text-blue-600",
+                    children: "AJIO"
+                }, void 0, false, {
+                    fileName: "src/components/Navbar.js",
+                    lineNumber: 6,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                    className: "flex space-x-6 font-medium text-gray-700",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                to: "/men",
+                                className: "hover:text-blue-500 transition",
+                                children: "Men"
+                            }, void 0, false, {
+                                fileName: "src/components/Navbar.js",
+                                lineNumber: 12,
+                                columnNumber: 13
+                            }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/Navbar.js",
                             lineNumber: 11,
-                            columnNumber: 13
-                        }, undefined)
-                    }, void 0, false, {
-                        fileName: "src/components/Navbar.js",
-                        lineNumber: 11,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                            to: "/category/beauty",
-                            children: "Makeup"
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                to: "/women",
+                                className: "hover:text-blue-500 transition",
+                                children: "Women"
+                            }, void 0, false, {
+                                fileName: "src/components/Navbar.js",
+                                lineNumber: 17,
+                                columnNumber: 13
+                            }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/Navbar.js",
-                            lineNumber: 12,
-                            columnNumber: 13
-                        }, undefined)
-                    }, void 0, false, {
-                        fileName: "src/components/Navbar.js",
-                        lineNumber: 12,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                            to: "/category/fragrances",
-                            children: "Perfume"
+                            lineNumber: 16,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                to: "/electronics",
+                                className: "hover:text-blue-500 transition",
+                                children: "Electronics"
+                            }, void 0, false, {
+                                fileName: "src/components/Navbar.js",
+                                lineNumber: 22,
+                                columnNumber: 13
+                            }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/Navbar.js",
-                            lineNumber: 13,
-                            columnNumber: 13
-                        }, undefined)
-                    }, void 0, false, {
-                        fileName: "src/components/Navbar.js",
-                        lineNumber: 13,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                            to: "/category/furniture",
-                            children: "Furniture"
+                            lineNumber: 21,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                to: "/about",
+                                className: "hover:text-blue-500 transition",
+                                children: "About"
+                            }, void 0, false, {
+                                fileName: "src/components/Navbar.js",
+                                lineNumber: 27,
+                                columnNumber: 13
+                            }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/Navbar.js",
-                            lineNumber: 14,
-                            columnNumber: 13
+                            lineNumber: 26,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                to: "/cart",
+                                className: "hover:text-blue-500 transition",
+                                children: "Cart"
+                            }, void 0, false, {
+                                fileName: "src/components/Navbar.js",
+                                lineNumber: 32,
+                                columnNumber: 13
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "src/components/Navbar.js",
+                            lineNumber: 31,
+                            columnNumber: 11
                         }, undefined)
-                    }, void 0, false, {
-                        fileName: "src/components/Navbar.js",
-                        lineNumber: 14,
-                        columnNumber: 9
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/Navbar.js",
-                lineNumber: 10,
-                columnNumber: 7
-            }, undefined)
-        ]
-    }, void 0, true, {
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/Navbar.js",
+                    lineNumber: 10,
+                    columnNumber: 9
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/Navbar.js",
+            lineNumber: 5,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
         fileName: "src/components/Navbar.js",
-        lineNumber: 5,
+        lineNumber: 4,
         columnNumber: 5
     }, undefined);
 };
@@ -16362,7 +16386,7 @@ $RefreshReg$(_c, "Navbar");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react-router-dom":"61z4w"}],"jnFvT":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react-router-dom":"61z4w"}],"jnFvT":[function(require,module,exports,__globalThis) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -25935,29 +25959,30 @@ const ProductCard = ()=>{
     }, []);
     const fetchData = async ()=>{
         try {
-            const response = await fetch("https://dummyjson.com/products?limit=20");
+            const response = await fetch("https://fakestoreapi.com/products");
+            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
             const data = await response.json();
-            // Format the product data
-            const formattedProducts = data.products.map((product)=>({
+            console.log("Fetched data:", data); // ✅ Add this
+            const formattedProducts = data.map((product)=>({
                     id: product.id,
                     title: product.title,
                     price: product.price,
                     description: product.description,
-                    image: product.thumbnail,
+                    image: product.image,
                     rating: {
-                        rate: product.rating
+                        rate: product.rating.rate
                     }
                 }));
             setListOfProduct(formattedProducts);
             setFilteredProduct(formattedProducts);
         } catch (error) {
-            console.error("Failed to fetch products:", error);
+            console.error("Failed to fetch products:", error.message);
         }
     };
     const HOFComponent = (0, _product.HOF)((0, _productDefault.default));
     return listOfProduct.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _skeletonDefault.default), {}, void 0, false, {
         fileName: "src/components/ProductCard.js",
-        lineNumber: 49,
+        lineNumber: 54,
         columnNumber: 5
     }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
@@ -25975,7 +26000,7 @@ const ProductCard = ()=>{
                                 value: searchText
                             }, void 0, false, {
                                 fileName: "src/components/ProductCard.js",
-                                lineNumber: 54,
+                                lineNumber: 59,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -25988,13 +26013,13 @@ const ProductCard = ()=>{
                                 children: "Search"
                             }, void 0, false, {
                                 fileName: "src/components/ProductCard.js",
-                                lineNumber: 61,
+                                lineNumber: 66,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/ProductCard.js",
-                        lineNumber: 53,
+                        lineNumber: 58,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -26006,41 +26031,39 @@ const ProductCard = ()=>{
                         children: "Top Rated Product"
                     }, void 0, false, {
                         fileName: "src/components/ProductCard.js",
-                        lineNumber: 75,
+                        lineNumber: 80,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/ProductCard.js",
-                lineNumber: 52,
+                lineNumber: 57,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "flex flex-wrap justify-center mt-5 mx-5",
-                children: filteredProduct.map((product)=>{
-                    return product.rating.rate >= 4 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(HOFComponent, {
+                children: filteredProduct.map((product)=>product.rating.rate >= 4 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(HOFComponent, {
                         product: product
                     }, product.id, false, {
                         fileName: "src/components/ProductCard.js",
-                        lineNumber: 91,
+                        lineNumber: 96,
                         columnNumber: 13
                     }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDefault.default), {
                         product: product
                     }, product.id, false, {
                         fileName: "src/components/ProductCard.js",
-                        lineNumber: 93,
+                        lineNumber: 98,
                         columnNumber: 13
-                    }, undefined);
-                })
+                    }, undefined))
             }, void 0, false, {
                 fileName: "src/components/ProductCard.js",
-                lineNumber: 88,
+                lineNumber: 93,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/ProductCard.js",
-        lineNumber: 51,
+        lineNumber: 56,
         columnNumber: 5
     }, undefined);
 };
@@ -26069,111 +26092,56 @@ parcelHelpers.export(exports, "HOF", ()=>HOF);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _reactRouterDom = require("react-router-dom");
 const Product = ({ product })=>{
-    const { id, title, image, price, rating } = product;
-    // Condition: Show "Best Seller" if rating is 4 or more
+    const { id, title, price, rating, image } = product; // ✅ image is a string (FakeStoreAPI)
     const isBestSeller = rating?.rate >= 4;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "w-72 bg-white rounded-lg border border-gray-200 shadow transition-transform duration-300 hover:shadow-xl hover:scale-105 m-4 overflow-hidden",
+        className: "w-64 bg-white rounded-lg shadow-md m-3 transform transition duration-300 hover:scale-105 hover:shadow-xl relative",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
             to: `/product/${id}`,
-            className: "flex flex-col relative",
+            className: "block p-4 text-center",
             children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "h-48 bg-gray-100 p-4 overflow-hidden relative",
+                isBestSeller && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                    className: "absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 rounded shadow z-10",
+                    children: "Best Seller"
+                }, void 0, false, {
+                    fileName: "src/components/Product.js",
+                    lineNumber: 11,
+                    columnNumber: 11
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                    src: image,
+                    alt: title,
+                    className: "h-36 mx-auto object-contain mb-3"
+                }, void 0, false, {
+                    fileName: "src/components/Product.js",
+                    lineNumber: 17,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                    className: "text-sm font-medium mb-1",
+                    children: title.length > 40 ? title.slice(0, 40) + "..." : title
+                }, void 0, false, {
+                    fileName: "src/components/Product.js",
+                    lineNumber: 23,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    className: "text-green-600 font-semibold",
                     children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                            className: "max-h-full max-w-full object-contain transition-transform duration-300 hover:scale-110",
-                            src: Array.isArray(image) ? image[0] : image,
-                            alt: title
-                        }, void 0, false, {
-                            fileName: "src/components/Product.js",
-                            lineNumber: 14,
-                            columnNumber: 11
-                        }, undefined),
-                        isBestSeller && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                            className: "absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 rounded",
-                            children: "Best Seller"
-                        }, void 0, false, {
-                            fileName: "src/components/Product.js",
-                            lineNumber: 22,
-                            columnNumber: 13
-                        }, undefined)
+                        "$",
+                        price
                     ]
                 }, void 0, true, {
                     fileName: "src/components/Product.js",
-                    lineNumber: 13,
+                    lineNumber: 27,
                     columnNumber: 9
                 }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "p-4",
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    className: "text-yellow-500 text-sm mt-1",
                     children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                            className: "font-semibold text-gray-800 hover:text-blue-600 line-clamp-2 mb-2 transition-colors duration-300",
-                            children: title
-                        }, void 0, false, {
-                            fileName: "src/components/Product.js",
-                            lineNumber: 30,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "text-sm text-gray-700",
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                    className: "flex items-center mb-1",
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                            className: "text-gray-600",
-                                            children: "Rating:"
-                                        }, void 0, false, {
-                                            fileName: "src/components/Product.js",
-                                            lineNumber: 36,
-                                            columnNumber: 15
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                            className: "text-yellow-500 font-semibold ml-1",
-                                            children: rating?.rate ? `${rating.rate} \u{2B50}` : "N/A"
-                                        }, void 0, false, {
-                                            fileName: "src/components/Product.js",
-                                            lineNumber: 37,
-                                            columnNumber: 15
-                                        }, undefined)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/components/Product.js",
-                                    lineNumber: 35,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                    className: "flex items-center",
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                            className: "text-gray-600",
-                                            children: "Price:"
-                                        }, void 0, false, {
-                                            fileName: "src/components/Product.js",
-                                            lineNumber: 42,
-                                            columnNumber: 15
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                            className: "text-green-600 font-semibold ml-1",
-                                            children: price ? `$${price}` : "N/A"
-                                        }, void 0, false, {
-                                            fileName: "src/components/Product.js",
-                                            lineNumber: 43,
-                                            columnNumber: 15
-                                        }, undefined)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/components/Product.js",
-                                    lineNumber: 41,
-                                    columnNumber: 13
-                                }, undefined)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/components/Product.js",
-                            lineNumber: 34,
-                            columnNumber: 11
-                        }, undefined)
+                        "\u2B50 ",
+                        rating?.rate,
+                        " / 5"
                     ]
                 }, void 0, true, {
                     fileName: "src/components/Product.js",
@@ -26183,24 +26151,30 @@ const Product = ({ product })=>{
             ]
         }, void 0, true, {
             fileName: "src/components/Product.js",
-            lineNumber: 11,
+            lineNumber: 9,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/Product.js",
-        lineNumber: 10,
+        lineNumber: 8,
         columnNumber: 5
     }, undefined);
 };
 _c = Product;
 exports.default = Product;
-const HOF = (WrappedProduct)=>{
-    return (props)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(WrappedProduct, {
-            ...props
+const HOF = (Component)=>{
+    return (props)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Component, {
+                ...props
+            }, void 0, false, {
+                fileName: "src/components/Product.js",
+                lineNumber: 41,
+                columnNumber: 7
+            }, undefined)
         }, void 0, false, {
             fileName: "src/components/Product.js",
-            lineNumber: 58,
-            columnNumber: 21
+            lineNumber: 40,
+            columnNumber: 5
         }, undefined);
 };
 _c1 = HOF;
@@ -26409,119 +26383,180 @@ var prevRefreshSig = globalThis.$RefreshSig$;
 $parcel$ReactRefreshHelpers$c903.prelude(module);
 
 try {
-// src/components/ProductDetails.js
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _reactRouterDom = require("react-router-dom");
-var _useGetSingleProduct = require("../Hook/useGetSingleProduct");
-var _useGetSingleProductDefault = parcelHelpers.interopDefault(_useGetSingleProduct);
-var _skeleton = require("./Skeleton");
-var _skeletonDefault = parcelHelpers.interopDefault(_skeleton);
+var _react = require("react");
 var _s = $RefreshSig$();
 const ProductDetails = ()=>{
     _s();
-    const { productId } = (0, _reactRouterDom.useParams)();
-    const product = (0, _useGetSingleProductDefault.default)(productId);
-    if (!product) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _skeletonDefault.default), {}, void 0, false, {
+    const { id } = (0, _reactRouterDom.useParams)();
+    const [product, setProduct] = (0, _react.useState)(null);
+    const [error, setError] = (0, _react.useState)("");
+    const [loading, setLoading] = (0, _react.useState)(true);
+    (0, _react.useEffect)(()=>{
+        const fetchProduct = async ()=>{
+            try {
+                const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+                if (!response.ok) throw new Error("Failed to fetch product details.");
+                const data = await response.json();
+                setProduct(data);
+            } catch (err) {
+                setError(err.message);
+            } finally{
+                setLoading(false);
+            }
+        };
+        fetchProduct();
+    }, [
+        id
+    ]);
+    if (loading) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "text-center mt-8",
+        children: "Loading..."
+    }, void 0, false, {
         fileName: "src/components/ProductDetails.js",
-        lineNumber: 10,
-        columnNumber: 24
+        lineNumber: 27,
+        columnNumber: 23
     }, undefined);
-    const { title, price, image, description, rating } = product;
+    if (error) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "text-center text-red-500 mt-8",
+        children: error
+    }, void 0, false, {
+        fileName: "src/components/ProductDetails.js",
+        lineNumber: 28,
+        columnNumber: 21
+    }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "max-w-4xl mx-auto px-4 py-8",
+        className: "max-w-5xl mx-auto px-4 py-8",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "bg-white rounded-lg shadow-md grid grid-cols-1 md:grid-cols-2 gap-6 p-6",
+            className: "bg-white rounded-xl shadow-lg p-6 grid md:grid-cols-2 gap-6",
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "flex items-center justify-center",
+                    className: "flex justify-center items-center",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                        src: image,
-                        alt: title,
-                        className: "w-full max-w-xs max-h-[300px] object-contain rounded-md"
+                        src: product.image,
+                        alt: product.title,
+                        className: "w-full max-w-xs h-auto object-contain"
                     }, void 0, false, {
                         fileName: "src/components/ProductDetails.js",
-                        lineNumber: 19,
+                        lineNumber: 35,
                         columnNumber: 11
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/components/ProductDetails.js",
-                    lineNumber: 18,
+                    lineNumber: 34,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "flex flex-col justify-center space-y-4",
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                            className: "text-3xl font-bold text-gray-800",
-                            children: title
+                            className: "text-2xl font-bold mb-2",
+                            children: product.title
                         }, void 0, false, {
                             fileName: "src/components/ProductDetails.js",
-                            lineNumber: 28,
+                            lineNumber: 44,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            className: "text-yellow-600 text-lg font-medium",
+                            className: "text-gray-600 mb-4",
+                            children: product.description
+                        }, void 0, false, {
+                            fileName: "src/components/ProductDetails.js",
+                            lineNumber: 45,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            className: "text-xl text-green-600 font-semibold mb-2",
                             children: [
-                                "\u2B50 ",
-                                rating?.rate,
-                                " Ratings"
+                                "$",
+                                product.price
                             ]
                         }, void 0, true, {
                             fileName: "src/components/ProductDetails.js",
-                            lineNumber: 29,
+                            lineNumber: 47,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            className: "text-2xl font-bold text-green-700",
+                            className: "mb-2",
                             children: [
-                                "Price: $",
-                                price
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                    className: "text-yellow-500",
+                                    children: [
+                                        "\u2B50 ",
+                                        product.rating.rate
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/ProductDetails.js",
+                                    lineNumber: 52,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                    className: "text-gray-500 ml-2",
+                                    children: [
+                                        "(",
+                                        product.rating.count,
+                                        " reviews)"
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/ProductDetails.js",
+                                    lineNumber: 53,
+                                    columnNumber: 13
+                                }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/ProductDetails.js",
-                            lineNumber: 32,
+                            lineNumber: 51,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                            className: "text-gray-700 text-sm leading-relaxed",
-                            children: description
-                        }, void 0, false, {
+                            className: "text-sm text-gray-500 mb-4",
+                            children: [
+                                "Category: ",
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                    className: "capitalize",
+                                    children: product.category
+                                }, void 0, false, {
+                                    fileName: "src/components/ProductDetails.js",
+                                    lineNumber: 57,
+                                    columnNumber: 23
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
                             fileName: "src/components/ProductDetails.js",
-                            lineNumber: 33,
+                            lineNumber: 56,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                            className: "w-fit px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition duration-300",
+                            className: "mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition",
                             children: "Add to Cart"
                         }, void 0, false, {
                             fileName: "src/components/ProductDetails.js",
-                            lineNumber: 34,
+                            lineNumber: 60,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/ProductDetails.js",
-                    lineNumber: 27,
+                    lineNumber: 43,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/ProductDetails.js",
-            lineNumber: 16,
+            lineNumber: 32,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/ProductDetails.js",
-        lineNumber: 15,
+        lineNumber: 31,
         columnNumber: 5
     }, undefined);
 };
-_s(ProductDetails, "v8P1J7a52Rr+6+I18cCIi9FBkTo=", false, function() {
+_s(ProductDetails, "oK4VzfSN0tUzOw2QgQjZQ5Yj6Fg=", false, function() {
     return [
-        (0, _reactRouterDom.useParams),
-        (0, _useGetSingleProductDefault.default)
+        (0, _reactRouterDom.useParams)
     ];
 });
 _c = ProductDetails;
@@ -26534,60 +26569,7 @@ $RefreshReg$(_c, "ProductDetails");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react-router-dom":"61z4w","./Skeleton":"5I2kz","../Hook/useGetSingleProduct":"2d4gr"}],"2d4gr":[function(require,module,exports,__globalThis) {
-var $parcel$ReactRefreshHelpers$2549 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-$parcel$ReactRefreshHelpers$2549.init();
-var prevRefreshReg = globalThis.$RefreshReg$;
-var prevRefreshSig = globalThis.$RefreshSig$;
-$parcel$ReactRefreshHelpers$2549.prelude(module);
-
-try {
-// src/Hook/useGetSingleProduct.js
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _react = require("react");
-var _s = $RefreshSig$();
-const useGetSingleProduct = (id)=>{
-    _s();
-    const [singleProduct, setSingleProduct] = (0, _react.useState)(null);
-    (0, _react.useEffect)(()=>{
-        const fetchSingleProduct = async ()=>{
-            try {
-                const response = await fetch(`https://dummyjson.com/products/${id}`);
-                const data = await response.json();
-                const formattedProduct = {
-                    id: data.id,
-                    title: data.title,
-                    price: data.price,
-                    description: data.description,
-                    image: data.thumbnail,
-                    rating: {
-                        rate: data.rating
-                    }
-                };
-                setSingleProduct(formattedProduct);
-            } catch (error) {
-                console.error("Failed to fetch single product:", error);
-            }
-        };
-        fetchSingleProduct();
-    }, [
-        id
-    ]);
-    return singleProduct;
-};
-_s(useGetSingleProduct, "9Q/Jz8/yRt60QezTVRT+QpQVu7A=");
-exports.default = useGetSingleProduct;
-
-  $parcel$ReactRefreshHelpers$2549.postlude(module);
-} finally {
-  globalThis.$RefreshReg$ = prevRefreshReg;
-  globalThis.$RefreshSig$ = prevRefreshSig;
-}
-},{"react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"baeVm":[function(require,module,exports,__globalThis) {
-module.exports = import("./Grocery.390591cb.js").then(()=>module.bundle.root('cz4SJ'));
-
-},{"cz4SJ":"cz4SJ"}],"3DmBm":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react-router-dom":"61z4w","react":"jMk1U"}],"3DmBm":[function(require,module,exports,__globalThis) {
 module.exports = import("./About.55328834.js").then(()=>module.bundle.root('bv2mH'));
 
 },{"bv2mH":"bv2mH"}],"7xcAl":[function(require,module,exports,__globalThis) {
@@ -26601,21 +26583,43 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _product = require("./Product");
+var _productDefault = parcelHelpers.interopDefault(_product);
+var _s = $RefreshSig$();
 const Men = ()=>{
+    _s();
+    const [products, setProducts] = (0, _react.useState)([]);
+    const MEN_CATEGORY_URL = "https://fakestoreapi.com/products/category/men%27s%20clothing"; // fixed encoding
+    (0, _react.useEffect)(()=>{
+        const fetchMenProducts = async ()=>{
+            try {
+                const response = await fetch(MEN_CATEGORY_URL);
+                const data = await response.json();
+                // Limit to 15 products (just in case more are added in the future)
+                setProducts(data.slice(0, 15)); // ✅ FIXED: no `.products`
+            } catch (error) {
+                console.error("Failed to fetch men's clothing:", error);
+            }
+        };
+        fetchMenProducts();
+    }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-            children: "Men"
-        }, void 0, false, {
-            fileName: "src/components/Men.js",
-            lineNumber: 4,
-            columnNumber: 7
-        }, undefined)
+        className: "flex flex-wrap justify-center mt-6",
+        children: products.map((product)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDefault.default), {
+                product: product
+            }, product.id, false, {
+                fileName: "src/components/Men.js",
+                lineNumber: 27,
+                columnNumber: 9
+            }, undefined))
     }, void 0, false, {
         fileName: "src/components/Men.js",
-        lineNumber: 3,
+        lineNumber: 25,
         columnNumber: 5
     }, undefined);
 };
+_s(Men, "f86L6rLANGURv6GE6gupp7+oOp4=");
 _c = Men;
 exports.default = Men;
 var _c;
@@ -26626,7 +26630,7 @@ $RefreshReg$(_c, "Men");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"l6hve":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react":"jMk1U","./Product":"2X43s"}],"l6hve":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$97d5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$97d5.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -26637,21 +26641,43 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _product = require("./Product");
+var _productDefault = parcelHelpers.interopDefault(_product);
+var _s = $RefreshSig$();
 const Women = ()=>{
+    _s();
+    const [products, setProducts] = (0, _react.useState)([]);
+    const WOMEN_CATEGORY_URL = "https://fakestoreapi.com/products/category/women%27s%20clothing"; // encoded '
+    (0, _react.useEffect)(()=>{
+        const fetchWomenProducts = async ()=>{
+            try {
+                const response = await fetch(WOMEN_CATEGORY_URL);
+                const data = await response.json();
+                // Limit to 15 products
+                setProducts(data.slice(0, 15));
+            } catch (error) {
+                console.error("Failed to fetch women's clothing:", error);
+            }
+        };
+        fetchWomenProducts();
+    }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-            children: "Women"
-        }, void 0, false, {
-            fileName: "src/components/Women.js",
-            lineNumber: 4,
-            columnNumber: 7
-        }, undefined)
+        className: "flex flex-wrap justify-center mt-6",
+        children: products.map((product)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDefault.default), {
+                product: product
+            }, product.id, false, {
+                fileName: "src/components/Women.js",
+                lineNumber: 27,
+                columnNumber: 9
+            }, undefined))
     }, void 0, false, {
         fileName: "src/components/Women.js",
-        lineNumber: 3,
+        lineNumber: 25,
         columnNumber: 5
     }, undefined);
 };
+_s(Women, "f86L6rLANGURv6GE6gupp7+oOp4=");
 _c = Women;
 exports.default = Women;
 var _c;
@@ -26662,43 +26688,7 @@ $RefreshReg$(_c, "Women");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"2vx74":[function(require,module,exports,__globalThis) {
-var $parcel$ReactRefreshHelpers$3417 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-$parcel$ReactRefreshHelpers$3417.init();
-var prevRefreshReg = globalThis.$RefreshReg$;
-var prevRefreshSig = globalThis.$RefreshSig$;
-$parcel$ReactRefreshHelpers$3417.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-const Kid = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-            children: "Kid"
-        }, void 0, false, {
-            fileName: "src/components/Kid.js",
-            lineNumber: 4,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false, {
-        fileName: "src/components/Kid.js",
-        lineNumber: 3,
-        columnNumber: 5
-    }, undefined);
-};
-_c = Kid;
-exports.default = Kid;
-var _c;
-$RefreshReg$(_c, "Kid");
-
-  $parcel$ReactRefreshHelpers$3417.postlude(module);
-} finally {
-  globalThis.$RefreshReg$ = prevRefreshReg;
-  globalThis.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"h9Vh3":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react":"jMk1U","./Product":"2X43s"}],"h9Vh3":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$16fb = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$16fb.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -26755,93 +26745,67 @@ var _s = $RefreshSig$();
 const CategoryPage = ()=>{
     _s();
     const { categoryName } = (0, _reactRouterDom.useParams)();
-    const [searchParams] = (0, _reactRouterDom.useSearchParams)();
-    const filterKeyword = searchParams.get("filter")?.toLowerCase();
-    const [categoryProducts, setCategoryProducts] = (0, _react.useState)([]);
+    const [products, setProducts] = (0, _react.useState)([]);
     const [loading, setLoading] = (0, _react.useState)(true);
     (0, _react.useEffect)(()=>{
         fetchCategoryProducts();
     }, [
-        categoryName,
-        filterKeyword
+        categoryName
     ]);
     const fetchCategoryProducts = async ()=>{
+        setLoading(true);
         try {
-            setLoading(true);
-            const res = await fetch(`https://dummyjson.com/products/category/${encodeURIComponent(categoryName)}`);
-            const data = await res.json();
-            let products = data.products.map((product)=>({
-                    id: product.id,
-                    title: product.title,
-                    description: product.description,
-                    price: product.price,
-                    image: product.thumbnail,
-                    rating: {
-                        rate: product.rating
-                    }
-                }));
-            // Apply filter if "filter=fruit" or similar
-            if (filterKeyword) products = products.filter((p)=>p.title.toLowerCase().includes(filterKeyword));
-            // ✅ Ensure only first 15 products are shown
-            products = products.slice(0, 15);
-            setCategoryProducts(products);
-            setLoading(false);
+            const response = await fetch(`https://fakestoreapi.com/products/category/${categoryName}`);
+            const data = await response.json();
+            setProducts(data);
         } catch (err) {
-            console.error("Error fetching products:", err);
-            setLoading(false);
+            console.error("Failed to fetch category:", err);
         }
+        setLoading(false);
     };
     if (loading) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _skeletonDefault.default), {}, void 0, false, {
         fileName: "src/components/CategoryPage.js",
-        lineNumber: 51,
+        lineNumber: 29,
         columnNumber: 23
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "p-4",
+        className: "mt-6 px-4",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                className: "text-2xl font-semibold capitalize mb-4",
+                className: "text-xl font-semibold mb-4 capitalize",
                 children: [
                     "Category: ",
                     categoryName
                 ]
             }, void 0, true, {
                 fileName: "src/components/CategoryPage.js",
-                lineNumber: 55,
+                lineNumber: 33,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "flex flex-wrap gap-4 justify-center",
-                children: categoryProducts.length > 0 ? categoryProducts.map((product)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDefault.default), {
+                className: "flex flex-wrap justify-center",
+                children: products.map((product)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDefault.default), {
                         product: product
                     }, product.id, false, {
                         fileName: "src/components/CategoryPage.js",
-                        lineNumber: 61,
-                        columnNumber: 13
-                    }, undefined)) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                    className: "text-gray-600",
-                    children: "No products found."
-                }, void 0, false, {
-                    fileName: "src/components/CategoryPage.js",
-                    lineNumber: 64,
-                    columnNumber: 11
-                }, undefined)
+                        lineNumber: 38,
+                        columnNumber: 11
+                    }, undefined))
             }, void 0, false, {
                 fileName: "src/components/CategoryPage.js",
-                lineNumber: 58,
+                lineNumber: 36,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/CategoryPage.js",
-        lineNumber: 54,
+        lineNumber: 32,
         columnNumber: 5
     }, undefined);
 };
-_s(CategoryPage, "xGlXHcSBT082nNqfFLyOB+V+nyQ=", false, function() {
+_s(CategoryPage, "A9W51OteuayxwpX5Woa537q1SJE=", false, function() {
     return [
-        (0, _reactRouterDom.useParams),
-        (0, _reactRouterDom.useSearchParams)
+        (0, _reactRouterDom.useParams)
     ];
 });
 _c = CategoryPage;
@@ -26854,6 +26818,45 @@ $RefreshReg$(_c, "CategoryPage");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react-router-dom":"61z4w","react":"jMk1U","./Product":"2X43s","./Skeleton":"5I2kz","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}]},["frqA7","hh6uc"], "hh6uc", "parcelRequirea7db", {}, null, null, "http://localhost:1234")
+},{"react/jsx-dev-runtime":"dVPUn","react-router-dom":"61z4w","react":"jMk1U","./Product":"2X43s","./Skeleton":"5I2kz","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"3jqUq":[function(require,module,exports,__globalThis) {
+module.exports = Promise.resolve(module.bundle.root("dWJZM"));
+
+},{"dWJZM":"dWJZM"}],"dWJZM":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$ccf4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$ccf4.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$ccf4.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const Electronics = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+            children: "Electronics"
+        }, void 0, false, {
+            fileName: "src/components/Electronics.js",
+            lineNumber: 4,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/components/Electronics.js",
+        lineNumber: 3,
+        columnNumber: 5
+    }, undefined);
+};
+_c = Electronics;
+exports.default = Electronics;
+var _c;
+$RefreshReg$(_c, "Electronics");
+
+  $parcel$ReactRefreshHelpers$ccf4.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}]},["frqA7","hh6uc"], "hh6uc", "parcelRequirea7db", {}, null, null, "http://localhost:1234")
 
 //# sourceMappingURL=Learn ReactJS.2c54e4d8.js.map
