@@ -1,32 +1,39 @@
 import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
-  const { id, title, price, rating, image } = product; // ✅ image is a string (FakeStoreAPI)
+  const { id, title, price, rating, image } = product;
   const isBestSeller = rating?.rate >= 4;
 
   return (
-    <div className="w-64 bg-white rounded-lg shadow-md m-3 transform transition duration-300 hover:scale-105 hover:shadow-xl relative">
+    <div className="w-72 m-4 bg-white/90 backdrop-blur-md rounded-2xl shadow-xl border border-indigo-100 hover:shadow-2xl hover:-translate-y-1 transition-transform duration-300 relative overflow-hidden">
       <Link to={`/product/${id}`} className="block p-4 text-center">
+
+        {/* Best Seller Badge */}
         {isBestSeller && (
-          <span className="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 rounded shadow z-10">
+          <span className="absolute top-2 left-2 bg-indigo-500 text-white text-[11px] px-2 py-[2px] rounded-full shadow z-10">
             Best Seller
           </span>
         )}
 
-        {/* ✅ Use single image from FakeStoreAPI */}
+        {/* Product Image */}
         <img
           src={image}
           alt={title}
-          className="h-36 mx-auto object-contain mb-3"
+          className="h-44 w-full object-contain mb-4 transition-transform duration-300 group-hover:scale-105"
         />
 
-        <h3 className="text-sm font-medium mb-1">
-          {title.length > 40 ? title.slice(0, 40) + "..." : title}
+        {/* Title */}
+        <h3 className="text-indigo-800 font-medium text-sm mb-2 h-12 leading-snug">
+          {title.length > 50 ? title.slice(0, 50) + "..." : title}
         </h3>
 
-        <p className="text-green-600 font-semibold">${price}</p>
+        {/* Price */}
+        <p className="text-lg font-bold text-indigo-600">${price}</p>
 
-        <p className="text-yellow-500 text-sm mt-1">⭐ {rating?.rate} / 5</p>
+        {/* Rating */}
+        <p className="text-yellow-500 text-sm mt-1">
+          ⭐ {rating?.rate} / 5
+        </p>
       </Link>
     </div>
   );
@@ -34,10 +41,10 @@ const Product = ({ product }) => {
 
 export default Product;
 
-// Highlight wrapper for top-rated products
+// Optional HOF wrapper
 export const HOF = (Component) => {
   return (props) => (
-    <div>
+    <div className="hover:scale-105 transition-transform duration-300">
       <Component {...props} />
     </div>
   );

@@ -8,23 +8,22 @@ import {
 
 // Core components
 import Navbar from "./components/Navbar";
-import Error from "./components/Error";
 import Men from "./components/Men";
 import Women from "./components/Women";
-import Electronics from "./components/Electronics"
+import Electronics from "./components/Electronics";
+import Jewelery from "./components/Jewelery";
+import Error from "./components/Error";
 import Cart from "./components/Cart";
 import ProductDetails from "./components/ProductDetails";
 import { ProductCard } from "./components/ProductCard";
-import CategoryPage from "./components/CategoryPage";
 
 // Lazy-loaded components
-const Grocery = lazy(() => import("./components/Electronics"));
 const About = lazy(() => import("./components/About"));
 
 // Layout Component
 const App = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-indigo-50">
       <Navbar />
       <Outlet />
     </div>
@@ -39,7 +38,7 @@ const appRouter = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        index: true, // route: "/"
+        index: true,
         element: <ProductCard />,
       },
       {
@@ -51,6 +50,14 @@ const appRouter = createBrowserRouter([
         element: <Women />,
       },
       {
+        path: "electronics", // ✅ fixed here
+        element: <Electronics />
+      },
+      {
+        path: "jewelery",
+        element: <Jewelery />
+      },
+      {
         path: "cart",
         element: <Cart />,
       },
@@ -59,25 +66,13 @@ const appRouter = createBrowserRouter([
         element: <ProductDetails />,
       },
       {
-        path: "electronics",
-        element: <Electronics />,
-      },
-      {
         path: "about",
         element: (
           <Suspense fallback={<h1>Loading...</h1>}>
             <About />
           </Suspense>
         ),
-      },
-      {
-        path: "grocery",
-        element: (
-          <Suspense fallback={<h1>Loading...</h1>}>
-            <Grocery />
-          </Suspense>
-        ),
-      },
+      }
     ],
   },
 ]);
