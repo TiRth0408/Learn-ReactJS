@@ -50,7 +50,7 @@ const appRouter = createBrowserRouter([
         element: <Women />,
       },
       {
-        path: "electronics", // ✅ fixed here
+        path: "electronics",
         element: <Electronics />
       },
       {

@@ -26599,42 +26599,46 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
-var _product = require("./Product");
-var _productDefault = parcelHelpers.interopDefault(_product);
+var _accordian = require("./Accordian");
+var _accordianDefault = parcelHelpers.interopDefault(_accordian);
 var _s = $RefreshSig$();
 const Men = ()=>{
     _s();
-    const [products, setProducts] = (0, _react.useState)([]);
-    const MEN_CATEGORY_URL = "https://fakestoreapi.com/products/category/men%27s%20clothing"; // fixed encoding
-    (0, _react.useEffect)(()=>{
-        const fetchMenProducts = async ()=>{
-            try {
-                const response = await fetch(MEN_CATEGORY_URL);
-                const data = await response.json();
-                // Limit to 15 products (just in case more are added in the future)
-                setProducts(data.slice(0, 15)); // ✅ FIXED: no `.products`
-            } catch (error) {
-                console.error("Failed to fetch men's clothing:", error);
-            }
-        };
-        fetchMenProducts();
-    }, []);
+    const [open, setOpen] = (0, _react.useState)(0);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "flex flex-wrap justify-center mt-6",
-        children: products.map((product)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDefault.default), {
-                product: product
-            }, product.id, false, {
+        className: "max-w-6xl mx-auto mt-10",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                className: "font-bold text-xl mb-5",
+                children: "Filter Options"
+            }, void 0, false, {
                 fileName: "src/components/Men.js",
-                lineNumber: 27,
-                columnNumber: 9
-            }, undefined))
-    }, void 0, false, {
+                lineNumber: 8,
+                columnNumber: 7
+            }, undefined),
+            [
+                "Brand",
+                "Mens",
+                "Gender",
+                "Kids"
+            ].map((title, index)=>// This is control component
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _accordianDefault.default), {
+                    title: title,
+                    open: open === index,
+                    setOpen: ()=>setOpen(index)
+                }, index, false, {
+                    fileName: "src/components/Men.js",
+                    lineNumber: 11,
+                    columnNumber: 9
+                }, undefined))
+        ]
+    }, void 0, true, {
         fileName: "src/components/Men.js",
-        lineNumber: 25,
+        lineNumber: 7,
         columnNumber: 5
     }, undefined);
 };
-_s(Men, "f86L6rLANGURv6GE6gupp7+oOp4=");
+_s(Men, "kwOYwiAlGcf16u2JaFl+OYF7OQ8=");
 _c = Men;
 exports.default = Men;
 var _c;
@@ -26645,7 +26649,145 @@ $RefreshReg$(_c, "Men");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react":"jMk1U","./Product":"2X43s"}],"l6hve":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","./Accordian":"K6eE0","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"K6eE0":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$863f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$863f.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$863f.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _listItems = require("./ListItems");
+var _listItemsDefault = parcelHelpers.interopDefault(_listItems);
+const Accordian = ({ title, open, setOpen })=>{
+    const showItemList = ()=>{
+        setOpen();
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "my-1 shadow-md border-gray-200 px-4 py-2 w-64",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "flex justify-between",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                        children: title
+                    }, void 0, false, {
+                        fileName: "src/components/Accordian.js",
+                        lineNumber: 12,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        onClick: showItemList,
+                        className: "bg-black text-white px-2 rounded-md cursor-pointer",
+                        children: "Show"
+                    }, void 0, false, {
+                        fileName: "src/components/Accordian.js",
+                        lineNumber: 13,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/Accordian.js",
+                lineNumber: 11,
+                columnNumber: 7
+            }, undefined),
+            open && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _listItemsDefault.default), {}, void 0, false, {
+                fileName: "src/components/Accordian.js",
+                lineNumber: 18,
+                columnNumber: 17
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/Accordian.js",
+        lineNumber: 10,
+        columnNumber: 5
+    }, undefined);
+};
+_c = Accordian;
+exports.default = Accordian;
+var _c;
+$RefreshReg$(_c, "Accordian");
+
+  $parcel$ReactRefreshHelpers$863f.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","./ListItems":"jg2kT","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"jg2kT":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$a42c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$a42c.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$a42c.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+const ListItems = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+        className: "text-sm ml-4",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                children: "Men"
+            }, void 0, false, {
+                fileName: "src/components/ListItems.js",
+                lineNumber: 6,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                children: "Women"
+            }, void 0, false, {
+                fileName: "src/components/ListItems.js",
+                lineNumber: 7,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                children: "Boys"
+            }, void 0, false, {
+                fileName: "src/components/ListItems.js",
+                lineNumber: 8,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                children: "Girls"
+            }, void 0, false, {
+                fileName: "src/components/ListItems.js",
+                lineNumber: 9,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                children: "Kid"
+            }, void 0, false, {
+                fileName: "src/components/ListItems.js",
+                lineNumber: 10,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/ListItems.js",
+        lineNumber: 5,
+        columnNumber: 5
+    }, undefined);
+};
+_c = ListItems;
+exports.default = ListItems;
+var _c;
+$RefreshReg$(_c, "ListItems");
+
+  $parcel$ReactRefreshHelpers$a42c.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"l6hve":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$97d5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$97d5.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
