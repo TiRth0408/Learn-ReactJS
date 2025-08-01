@@ -669,6 +669,10 @@
     border-width: 1px;
   }
 
+  .border-black {
+    border-color: var(--color-black);
+  }
+
   .border-gray-200 {
     border-color: var(--color-gray-200);
   }

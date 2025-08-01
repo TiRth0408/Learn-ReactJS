@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useState } from "react";
 import ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
@@ -16,17 +16,26 @@ import Error from "./components/Error";
 import Cart from "./components/Cart";
 import ProductDetails from "./components/ProductDetails";
 import { ProductCard } from "./components/ProductCard";
+import CompoA from "./components/CompoA";
+import UserContext from "./utils/UserContext";
 
 // Lazy-loaded components
 const About = lazy(() => import("./components/About"));
 
 // Layout Component
 const App = () => {
+
+  const [userName, setUserName] = useState("Patel Tirth");
+
   return (
-    <div className="min-h-screen bg-indigo-50">
-      <Navbar />
-      <Outlet />
-    </div>
+    <UserContext.Provider value={{name: userName, setUserName}}>
+      <div className="min-h-screen bg-indigo-50">
+        <Navbar />
+        {/* <CompoA /> */}
+        <Outlet />
+      </div>
+    </UserContext.Provider>
+
   );
 };
 

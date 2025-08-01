@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Product, { HOF } from "./Product";
 import Skeleton from "./Skeleton";
+import UserContext from "../utils/UserContext";
 
 export const ProductCard = () => {
   const [listOfProduct, setListOfProduct] = useState([]);
   const [filteredProduct, setFilteredProduct] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+  const user = useContext(UserContext);
 
   useEffect(() => {
     fetchData();
@@ -88,6 +91,10 @@ export const ProductCard = () => {
         >
           Top Rated Product
         </button>
+
+        <div>
+          <input className="border border-black py-2" type="text" value={user.name} onChange={(e)=> user.setUserName(e.target.value)} />
+        </div>
       </div>
 
       <div className="flex flex-wrap justify-center mt-5 mx-5">

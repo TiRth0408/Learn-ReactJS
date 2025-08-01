@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
+import { useContext } from "react";
 
 const Navbar = () => {
+
+  const user = useContext(UserContext);
   return (
     <nav className="bg-indigo-500 bg-opacity-80 backdrop-blur-md shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
@@ -39,6 +43,7 @@ const Navbar = () => {
               About
             </Link>
           </li>
+          <li>{user.name}</li>
           <li>
             <Link to="/cart" className="hover:text-indigo-200 transition">
               Cart

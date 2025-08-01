@@ -160,11 +160,11 @@
       });
     }
   }
-})({"iC6ML":[function(require,module,exports,__globalThis) {
+})({"1aWES":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
-var HMR_SERVER_PORT = 50026;
+var HMR_SERVER_PORT = 1234;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "439701173a9199ea";
 var HMR_USE_SSE = false;
@@ -843,6 +843,8 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _userContext = require("../utils/UserContext");
+var _userContextDefault = parcelHelpers.interopDefault(_userContext);
 class ProfileClass extends (0, _reactDefault.default).Component {
     constructor(){
         super();
@@ -854,7 +856,7 @@ class ProfileClass extends (0, _reactDefault.default).Component {
             },
             count: 0
         };
-        console.log('ctr is called');
+    // console.log('ctr is called');
     }
     async componentDidMount() {
         const data = await fetch("https://api.github.com/users/TiRth0408");
@@ -864,27 +866,27 @@ class ProfileClass extends (0, _reactDefault.default).Component {
         });
         console.log('component did mount is called');
         this.timer = setTimeout(()=>{
-            console.log('Tirth Called');
+        // console.log('Tirth Called');
         }, 1000);
     }
     componentDidUpdate(prevProps, prevState) {
-        console.log('component did update is called');
-        if (this.state.count !== prevState.count || this.state.count2 !== prevState.count2) console.log('Count has changed:', this.state.count);
+        // console.log('component did update is called');
+        this.state.count !== prevState.count || (this.state.count2, prevState.count2);
     }
     componentWillUnmount() {
-        console.log('component will unmount is called');
+        // console.log('component will unmount is called');
         clearInterval(this.timer);
     }
     render() {
-        console.log('render is called');
+        // console.log('render is called')
         if (this.state.userDetails === null) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
             children: "Loading.."
         }, void 0, false, {
             fileName: "src/components/ProfileClass.js",
-            lineNumber: 47,
+            lineNumber: 48,
             columnNumber: 14
         }, this);
-        const { name, user_view_type, avatar_url } = this.state.userDetails;
+        const { name, avatar_url } = this.state.userDetails;
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             style: {
                 "border": "1px solid black",
@@ -896,40 +898,37 @@ class ProfileClass extends (0, _reactDefault.default).Component {
                     children: "Profile Class Component"
                 }, void 0, false, {
                     fileName: "src/components/ProfileClass.js",
-                    lineNumber: 60,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                    children: [
-                        "Name: ",
-                        name
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/ProfileClass.js",
                     lineNumber: 61,
                     columnNumber: 9
                 }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                    children: [
-                        "User View Type: ",
-                        user_view_type
-                    ]
-                }, void 0, true, {
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _userContextDefault.default).Consumer, {
+                    children: (data)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                            className: "font-bold text-lg",
+                            children: [
+                                "Name: ",
+                                data.name
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/ProfileClass.js",
+                            lineNumber: 65,
+                            columnNumber: 13
+                        }, this)
+                }, void 0, false, {
                     fileName: "src/components/ProfileClass.js",
-                    lineNumber: 62,
+                    lineNumber: 63,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                     src: avatar_url
                 }, void 0, false, {
                     fileName: "src/components/ProfileClass.js",
-                    lineNumber: 63,
+                    lineNumber: 68,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/ProfileClass.js",
-            lineNumber: 53,
+            lineNumber: 54,
             columnNumber: 7
         }, this);
     }
@@ -941,6 +940,6 @@ exports.default = ProfileClass;
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}]},["iC6ML"], null, "parcelRequirea7db", {})
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","../utils/UserContext":"8LxkN"}]},["1aWES"], null, "parcelRequirea7db", {})
 
 //# sourceMappingURL=About.55328834.js.map
