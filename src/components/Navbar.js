@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import UserContext from "../utils/UserContext";
 import { useContext } from "react";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
 
+  const cartItems = useSelector((store) => store.cart.cartItems);
   const user = useContext(UserContext);
   return (
     <nav className="bg-indigo-500 bg-opacity-80 backdrop-blur-md shadow-md sticky top-0 z-50">
@@ -43,10 +45,13 @@ const Navbar = () => {
               About
             </Link>
           </li>
-          <li>{user.name}</li>
+          {/* <li>{user.name}</li> */}
           <li>
-            <Link to="/cart" className="hover:text-indigo-200 transition">
-              Cart
+            <Link to="/cart" className="relative hover:text-indigo-200 transition">
+              🛒
+              <span className="absolute -top-2 -right-3 text-white bg-red-500 px-1.5 py-0.5 text-xs rounded-full">
+                {cartItems.length}
+              </span>
             </Link>
           </li>
         </ul>

@@ -7,7 +7,6 @@ const Product = ({ product }) => {
   return (
     <div className="w-72 m-4 bg-white/90 backdrop-blur-md rounded-2xl shadow-xl border border-indigo-100 hover:shadow-2xl hover:-translate-y-1 transition-transform duration-300 relative overflow-hidden">
       <Link to={`/product/${id}`} className="block p-4 text-center">
-
         {/* Best Seller Badge */}
         {isBestSeller && (
           <span className="absolute top-2 left-2 bg-indigo-500 text-white text-[11px] px-2 py-[2px] rounded-full shadow z-10">
@@ -19,7 +18,7 @@ const Product = ({ product }) => {
         <img
           src={image}
           alt={title}
-          className="h-44 w-full object-contain mb-4 transition-transform duration-300 group-hover:scale-105"
+          className="h-44 w-full object-contain mb-4"
         />
 
         {/* Title */}

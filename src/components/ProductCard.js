@@ -8,7 +8,7 @@ export const ProductCard = () => {
   const [filteredProduct, setFilteredProduct] = useState([]);
   const [searchText, setSearchText] = useState("");
 
-  const user = useContext(UserContext);
+  const { name, setUserName } = useContext(UserContext);
 
   useEffect(() => {
     fetchData();
@@ -32,7 +32,6 @@ export const ProductCard = () => {
       }
 
       const data = await response.json();
-      console.log("Fetched data:", data); // ✅ Add this
 
       const formattedProducts = data.map((product) => ({
         id: product.id,
@@ -40,7 +39,11 @@ export const ProductCard = () => {
         price: product.price,
         description: product.description,
         image: product.image,
-        rating: { rate: product.rating.rate },
+        rating: {
+          rate: product.rating.rate,
+          count: product.rating.count,
+        },
+        category: product.category,
       }));
 
       setListOfProduct(formattedProducts);
@@ -50,14 +53,14 @@ export const ProductCard = () => {
     }
   };
 
-
   const HOFComponent = HOF(Product);
 
   return listOfProduct.length === 0 ? (
     <Skeleton />
   ) : (
     <div>
-      <div className="mt-5 flex mx-5 space-x-2">
+      <div className="mt-5 flex mx-5 space-x-2 flex-wrap items-center">
+        {/* 🔍 Search input */}
         <div className="mt-2.5 flex">
           <input
             className="border border-gray-700 px-2 py-1.5 rounded-l-md outline-none"
@@ -80,6 +83,7 @@ export const ProductCard = () => {
           </button>
         </div>
 
+        {/* ⭐ Top rated */}
         <button
           onClick={() => {
             const filterProduct = listOfProduct.filter(
@@ -92,9 +96,16 @@ export const ProductCard = () => {
           Top Rated Product
         </button>
 
-        <div>
-          <input className="border border-black py-2" type="text" value={user.name} onChange={(e)=> user.setUserName(e.target.value)} />
-        </div>
+        {/* 👤 Username input */}
+        {/* <div className="mt-2">
+          <input
+            className="border border-black py-2 px-2 rounded"
+            type="text"
+            value={name}
+            placeholder="Update username"
+            onChange={(e) => setUserName(e.target.value)}
+          />
+        </div> */}
       </div>
 
       <div className="flex flex-wrap justify-center mt-5 mx-5">
