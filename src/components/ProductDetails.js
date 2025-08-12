@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../store/cartSlice";
-import { toast } from "react-hot-toast";
+import { addItems } from "../store/cartSlice";
+import toast from "react-hot-toast";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -13,8 +13,16 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
 
   const handleCartItem = () => {
-    dispatch(addToCart(product));
-    toast.success("Item added to cart!");
+    dispatch(addItems(product));
+    toast.success(`${product.title} added to cart!`, {
+      position: "bottom-left",
+      style: {
+        background: "#4f46e5",
+        color: "#fff",
+        borderRadius: "8px",
+        padding: "10px",
+      },
+    });
   };
 
   useEffect(() => {
@@ -56,7 +64,9 @@ const ProductDetails = () => {
           </p>
           <p className="mb-2">
             <span className="text-yellow-500">⭐ {product.rating.rate}</span>
-            <span className="text-gray-500 ml-2">({product.rating.count} reviews)</span>
+            <span className="text-gray-500 ml-2">
+              ({product.rating.count} reviews)
+            </span>
           </p>
           <p className="text-sm text-gray-500 mb-4">
             Category: <span className="capitalize">{product.category}</span>

@@ -13,9 +13,12 @@ import Error from "./components/Error";
 import Cart from "./components/Cart";
 import ProductDetails from "./components/ProductDetails";
 import { ProductCard } from "./components/ProductCard";
+import Login from "./components/Login"
 import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./store/Store";
+import Payment from "./components/Payment";
+import Orders from "./components/Orders";
 
 // Lazy-loaded component
 const About = lazy(() => import("./components/About"));
@@ -87,6 +90,10 @@ const appRouter = createBrowserRouter([
         element: <ProductDetails />,
       },
       {
+        path: "login",
+        element: <Login />
+      },
+      {
         path: "about",
         element: (
           <Suspense fallback={<h1>Loading...</h1>}>
@@ -94,6 +101,14 @@ const appRouter = createBrowserRouter([
           </Suspense>
         ),
       },
+      {
+        path: "payment",
+        element: <Payment />
+      },
+      {
+        path: "orders",
+        element: <Orders />
+      }
     ],
   },
 ]);

@@ -1,17 +1,26 @@
 import { useDispatch, useSelector } from "react-redux";
-import { clearItems, removeItemById } from "../store/cartSlice";
+import { clearItems, removeItemById, increaseQuantity } from "../store/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleRemove = (id) => {
+  const handleRemoveOne = (id) => {
     dispatch(removeItemById(id));
+  };
+
+  const handleIncrease = (id) => {
+    dispatch(increaseQuantity(id));
   };
 
   const handleClearCart = () => {
     dispatch(clearItems());
   };
+
+  // ✅ Calculate total price considering quantity
+  const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
     <div className="max-w-5xl mx-auto p-6">
@@ -41,32 +50,57 @@ const Cart = () => {
                     Category: {item.category}
                   </p>
                   <p className="text-lg font-medium mt-1 text-indigo-700">
-                    ${item.price}
+                    ${item.price} × {item.quantity}
                   </p>
                   <p className="text-sm text-yellow-500 mt-1">
                     ⭐ {item.rating?.rate} ({item.rating?.count})
                   </p>
+
+                  {/* ✅ Quantity Controls */}
+                  <div className="mt-3 flex items-center gap-2">
+                    <button
+                      onClick={() => handleRemoveOne(item.id)}
+                      className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
+                    >
+                      −
+                    </button>
+                    <span className="font-semibold">{item.quantity}</span>
+                    <button
+                      onClick={() => handleIncrease(item.id)}
+                      className="px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600"
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
-                <button
-                  onClick={() => handleRemove(item.id)}
-                  className="self-start sm:self-center px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-                >
-                  Remove
-                </button>
               </li>
             ))}
           </ul>
 
-          <div className="mt-8 flex justify-between items-center">
-            <p className="text-lg font-medium">
-              Total Items: {cartItems.length}
-            </p>
-            <button
-              onClick={handleClearCart}
-              className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-            >
-              Clear Cart
-            </button>
+          {/* ✅ Cart Summary */}
+          <div className="mt-8 flex justify-between items-center bg-gray-100 p-4 rounded-lg shadow">
+            <div>
+              <p className="text-lg font-medium">
+                Total Items: {cartItems.reduce((sum, item) => sum + item.quantity, 0)}
+              </p>
+              <p className="text-lg font-semibold text-green-700">
+                Total Price: ${totalPrice.toFixed(2)}
+              </p>
+            </div>
+            <div className="flex gap-3">
+              <button
+                onClick={handleClearCart}
+                className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+              >
+                Clear Cart
+              </button>
+              <button
+                onClick={() => navigate("/payment")}
+                className="px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+              >
+                Go to Payment
+              </button>
+            </div>
           </div>
         </>
       )}
